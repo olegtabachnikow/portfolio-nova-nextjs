@@ -14,7 +14,7 @@ export default function HomePage() {
   const [isStarted, setIsStarted] = useState<boolean>(false);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setLoading(false), 1500);
+    const timeout = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timeout);
   });
 

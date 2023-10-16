@@ -5,8 +5,12 @@ import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
 import '../node_modules/normalize.css';
 import Head from 'next/head';
+import { useMediaQuery } from 'react-responsive';
+import Notification from '@/components/ui/Notification/Notification';
 
 function App({ Component, pageProps }: AppProps) {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  const isLandscape = useMediaQuery({ query: '(orientation: landscape)' });
   return (
     <Provider store={store}>
       <Head>
@@ -19,6 +23,7 @@ function App({ Component, pageProps }: AppProps) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Component {...pageProps} />
+      {isTabletOrMobile && isLandscape ? <Notification /> : null}
     </Provider>
   );
 }
