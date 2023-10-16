@@ -87,7 +87,7 @@ export const Contact: FC = () => {
         whileTap={{ scale: 0.8 }}
         className={classes.button}
         id={isTabletOrMobile ? classes.mobile : undefined}
-        href='/public/OLEG_TABACHNIKOW_CV.pdf'
+        href={process.env.NEXT_CV}
         download
       >
         {t('contact.button')}
