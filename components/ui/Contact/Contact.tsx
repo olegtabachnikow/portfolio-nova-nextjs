@@ -87,7 +87,7 @@ export const Contact: FC = () => {
         whileTap={{ scale: 0.8 }}
         className={classes.button}
         id={isTabletOrMobile ? classes.mobile : undefined}
-        href='https://github.com/olegtabachnikow/portfolio-nova/raw/gh-pages/OLEG_TABACHNIKOW_CV.pdf'
+        href='/public/OLEG_TABACHNIKOW_CV.pdf'
         download
       >
         {t('contact.button')}
