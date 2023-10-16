@@ -8,10 +8,9 @@ import Link from 'next/link';
 
 interface Props {
   isNovaPage?: boolean;
-  isDisabled?: boolean;
 }
 
-export const LanguageSwitch: FC<Props> = ({ isNovaPage, isDisabled }) => {
+export const LanguageSwitch: FC<Props> = ({ isNovaPage }) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const { i18n } = useTranslation('translation');
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
@@ -20,14 +19,10 @@ export const LanguageSwitch: FC<Props> = ({ isNovaPage, isDisabled }) => {
     <div
       onClick={() => setIsActive((state) => !state)}
       className={classes.container}
-      style={
-        isTabletOrMobile
-          ? {
-              top: 15,
-              right: 15,
-            }
-          : {}
-      }
+      style={{
+        top: isTabletOrMobile ? 15 : 30,
+        right: isTabletOrMobile ? 15 : 30,
+      }}
     >
       <button className={classes.button + ' ' + classes.main}>
         <Image

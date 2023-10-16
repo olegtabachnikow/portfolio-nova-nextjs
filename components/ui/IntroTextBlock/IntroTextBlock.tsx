@@ -10,22 +10,15 @@ interface Props {
 
 const IntroTextBlock: FC<Props> = ({ isDisabled }) => {
   const { t } = useTranslation();
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
   return (
     <motion.div
       initial={{
-        top: isTabletOrMobile ? 350 : 500,
+        translateY: -20,
         opacity: 1,
       }}
       animate={{
-        top: isDisabled
-          ? isTabletOrMobile
-            ? 350
-            : 500
-          : isTabletOrMobile
-          ? 450
-          : 600,
+        translateY: isDisabled ? -20 : 130,
         opacity: isDisabled ? 1 : 0,
       }}
       transition={{ duration: 0.35 }}

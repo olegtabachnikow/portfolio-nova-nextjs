@@ -1,7 +1,5 @@
 .container {
   position: absolute;
-  right: 30px;
-  top: 30px;
 }
 .button {
   filter: drop-shadow(0 0 8px #baac913f);

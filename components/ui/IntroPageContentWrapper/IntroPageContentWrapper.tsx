@@ -11,7 +11,7 @@ const IntroPageContentWrapper: FC<Props> = ({ children }) => {
     <motion.div
       initial={{ translateY: 50, opacity: 0 }}
       animate={{ translateY: 0, opacity: 1 }}
-      transition={{ duration: 0.35 }}
+      transition={{ duration: 0.35, delay: 0.3 }}
       className={classes.container}
     >
       {children}
