@@ -1,0 +1,38 @@
+.overlay {
+  background-image: url(/images/background.jpeg);
+  background-position: top;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  filter: blur(30px);
+  background-size: 110% 180px;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+.header {
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.title {
+  position: absolute;
+  top: 110px;
+  font-family: 'Jost', sans-serif;
+  color: white;
+  font-weight: 400;
+}
+.subtitle {
+  position: absolute;
+  top: 160px;
+  font-family: 'Jost', sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  opacity: 0.8;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}

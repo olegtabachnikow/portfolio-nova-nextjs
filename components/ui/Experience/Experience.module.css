@@ -1,0 +1,10 @@
+.container {
+  margin-top: 10px;
+}
+
+.title {
+  font-family: 'Jost', sans-serif;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+}

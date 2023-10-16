@@ -1,0 +1,45 @@
+{
+  "start": "start",
+  "welcome1": "Hi, I am Oleg",
+  "welcome2": "Welcome to my portfolio!",
+  "rotate": "Rotate the device",
+  "notfound": "Page not found",
+  "return": "Back to the start page",
+  "myinfo": {
+    "name": "Oleg Tabachnikow",
+    "job": "frontend web developer"
+  },
+  "about": {
+    "title": "about",
+    "text": "As a highly motivated Frontend developer, my experience covers Israel, Russia and United States. I have extensive experience building single page applications and mobile applications. I constantly seek to improve my developer skill set by completing additional courses and staying up-to-date with the latest trends and technologies."
+  },
+  "experience": {
+    "title": "work experience",
+    "item1": {
+      "company": "Front-end Web Developer at Edeal Inc",
+      "text": "Conceptualized and developed a comprehensive, reusable component library, streamlining the development process and promoting consistent design across projects."
+    },
+    "item2": {
+      "company": "Front-end Web Developer at Get Robo VPN",
+      "text": "Developed a responsive and user-friendly Single Page Application (SPA) for seamless integration into the Telegram Web App Bot."
+    },
+    "item3": {
+      "company": "Teacher Assistant at Yandex",
+      "text": "Diagnosed and resolved complex coding issues, provided one-one mentorship to a group of over 70 students, and enhanced students understanding of best practices in web development."
+    },
+    "item4": {
+      "company": "Front-end Web Developer at Ava Mind",
+      "text": "Developed a responsive and user-friendly Single Page Application (SPA). Assumed a leadership role in strategizing project roadmap, effectively coordinating with key stakeholders to maintain alignment throughout the development process."
+    }
+  },
+  "contact": {
+    "title": "contact",
+    "button": "download cv",
+    "address": "Sderot Sheshet HaYamim 30, Tel Aviv-Jaffa"
+  },
+  "footer": {
+    "about": "about",
+    "experience": "experience",
+    "contact": "contact"
+  }
+}

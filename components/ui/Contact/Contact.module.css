@@ -1,0 +1,63 @@
+.title {
+  margin-bottom: 15px;
+  display: block;
+  font-family: 'Jost', sans-serif;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.link {
+  color: white;
+  text-decoration: none;
+  font-family: 'Jost', sans-serif;
+  opacity: 0.7;
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon {
+  filter: invert(99%) sepia(5%) saturate(1915%) hue-rotate(270deg)
+    brightness(118%) contrast(100%);
+}
+.iconbox {
+  padding: 5px 10px 5px 5px;
+  margin-right: 10px;
+  border-right: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#reversed1,
+#reversed2,
+#reversed3 {
+  padding: 5px 5px 5px 10px;
+  margin: 0 0 0 10px;
+  border: 0;
+  border-left: 1px solid gray;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  height: 50px;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  font-family: 'Jost', sans-serif;
+  background: linear-gradient(
+    to right,
+    rgb(239, 161, 4) 0%,
+    rgb(122, 56, 245) 96%
+  );
+  text-transform: uppercase;
+  margin-top: 40px;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.8;
+}
+.button:hover,
+#mobile {
+  opacity: 1;
+}
