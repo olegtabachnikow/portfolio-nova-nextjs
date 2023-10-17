@@ -11,7 +11,7 @@ export default Custom404;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const translationsProps = await serverSideTranslations(locale ?? 'en', [
-    'common',
+    'translation',
   ]);
 
   return {
