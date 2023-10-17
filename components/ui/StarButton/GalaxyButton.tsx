@@ -19,6 +19,8 @@ export const GalaxyButton: FC<Props> = ({
   isDisabled,
   setIsStarted,
 }) => {
+  const [isAvatarShown, setIsAvatarShown] = useState<boolean>(true);
+  const [isGalaxyShown, setIsGalaxyShown] = useState<boolean>(false);
   const { locale, push } = useRouter();
   const { t } = useTranslation();
 
@@ -28,6 +30,15 @@ export const GalaxyButton: FC<Props> = ({
       push(`/${locale}/nova`);
     }, 350);
   }
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+    if (!isDisabled) {
+      setIsGalaxyShown(true);
+      timeout = setTimeout(() => setIsAvatarShown(false), 350);
+    }
+    return () => clearTimeout(timeout);
+  }, [isDisabled]);
 
   useEffect(() => {
     setIsStarted(false);
@@ -71,59 +82,65 @@ export const GalaxyButton: FC<Props> = ({
     >
       <div className={classes.shadow} />
       <div className={classes.cone} />
-      <motion.div
-        initial={{
-          opacity: isDisabled ? 1 : 0,
-        }}
-        animate={{
-          opacity: isDisabled ? 1 : 0,
-        }}
-        transition={{ duration: 0.35 }}
-        className={classes.image}
-      >
-        <Image
-          src='/images/myphoto.webp'
-          alt='picture of author'
-          width={300}
-          height={300}
-          quality={100}
-        />
-      </motion.div>
-      <motion.div className={classes.galaxy}>
+      {isAvatarShown ? (
         <motion.div
-          initial={{ transform: 'translate(100px, 100px)' }}
-          animate={!isDisabled && { transform: 'translate(0, 0)' }}
-          transition={{ duration: 0.5, delay: 1 }}
-          className={classes.bigstar}
-        />
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={!isDisabled && { opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1 }}
-          className={classes.stars}
+          initial={{
+            opacity: isDisabled ? 1 : 0,
+          }}
+          animate={{
+            opacity: isDisabled ? 1 : 0,
+          }}
+          transition={{ duration: 0.35 }}
+          className={classes.image}
         >
-          {stars.map((el, i) => (
-            <span key={el + i} className={classes.star} />
-          ))}
+          <Image
+            src='/images/myphoto.webp'
+            alt='picture of author'
+            width={300}
+            height={300}
+            quality={100}
+          />
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={!isDisabled && { opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1 }}
-        >
-          {starsStatic.map((el, i) => (
-            <span key={`${el + i}-static`} className={classes.static} />
-          ))}
-        </motion.div>
-      </motion.div>
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={!isDisabled && { opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1 }}
-        className={classes.text}
-      >
-        {t('start')}
-      </motion.span>
+      ) : null}
+      {isGalaxyShown ? (
+        <>
+          <motion.div className={classes.galaxy}>
+            <motion.div
+              initial={{ transform: 'translate(100px, 100px)' }}
+              animate={!isDisabled && { transform: 'translate(0, 0)' }}
+              transition={{ duration: 0.5, delay: 1 }}
+              className={classes.bigstar}
+            />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={!isDisabled && { opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1 }}
+              className={classes.stars}
+            >
+              {stars.map((el, i) => (
+                <span key={el + i} className={classes.star} />
+              ))}
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={!isDisabled && { opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1 }}
+            >
+              {starsStatic.map((el, i) => (
+                <span key={`${el + i}-static`} className={classes.static} />
+              ))}
+            </motion.div>
+          </motion.div>
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={!isDisabled && { opacity: 1 }}
+            transition={{ duration: 0.5, delay: 1 }}
+            className={classes.text}
+          >
+            {t('start')}
+          </motion.span>
+        </>
+      ) : null}
     </motion.button>
   );
 };
