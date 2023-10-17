@@ -16,12 +16,12 @@ export default function HomePage() {
   useEffect(() => {
     const timeout = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timeout);
-  });
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsDisabled(false);
-    }, 10000);
+    }, 5000);
     return () => {
       clearTimeout(timer);
     };
@@ -50,7 +50,7 @@ export default function HomePage() {
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const translationsProps = await serverSideTranslations(locale ?? 'en', [
-    'translation',
+    'common',
   ]);
 
   return {

@@ -19,7 +19,7 @@ export default NovaPage;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const translationsProps = await serverSideTranslations(locale ?? 'en', [
-    'translation',
+    'common',
   ]);
 
   return {

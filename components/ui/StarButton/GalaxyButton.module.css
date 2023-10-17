@@ -158,11 +158,11 @@
 }
 
 .image {
-  width: 200px;
-  height: 200px;
+  width: 202px;
+  height: 202px;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -2px;
+  left: -2px;
   z-index: 7;
   border-radius: 50%;
   overflow: hidden;
@@ -171,7 +171,7 @@
 .image img {
   position: absolute;
   object-fit: contain;
-  transform: translate(-50px, -40px) scale(0.9);
-  top: -10px;
+  width: 100%;
+  top: -50px;
   left: 0;
 }

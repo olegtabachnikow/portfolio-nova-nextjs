@@ -82,7 +82,7 @@ export const GalaxyButton: FC<Props> = ({
         className={classes.image}
       >
         <Image
-          src='/images/myphoto.jpg'
+          src='/images/myphoto.webp'
           alt='picture of author'
           width={300}
           height={300}
