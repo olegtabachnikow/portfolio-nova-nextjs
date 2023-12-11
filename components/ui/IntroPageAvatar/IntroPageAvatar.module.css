@@ -9,7 +9,6 @@
   border-radius: 50%;
   height: 312px;
   -webkit-tap-highlight-color: transparent;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 400px;
 }
 .container:after {
@@ -25,7 +24,6 @@
     'M 390,400 C 390,504.9341 304.9341,590 200,590 95.065898,590 10,504.9341 10,400 V 10 H 200 390 Z'
   );
   position: relative;
-  transform-origin: 50%;
   top: -200px;
 }
 .circle,
@@ -55,7 +53,6 @@
   top: 164px;
   width: 340px;
   z-index: 2;
-  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes galaxy-rotation {
