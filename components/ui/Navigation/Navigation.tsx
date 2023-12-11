@@ -74,12 +74,17 @@ const buttonList: ButtonItemLangType[] = [
 
 interface Props {
   isNovaPage?: boolean;
+  isOpen: boolean;
 }
 
-const Navigation: FC<Props> = ({ isNovaPage }) => {
+const Navigation: FC<Props> = ({ isNovaPage, isOpen }) => {
   const { t, i18n } = useTranslation('translation');
   return (
-    <motion.ul className={classes.list} variants={listVariants}>
+    <motion.ul
+      style={{ pointerEvents: isOpen ? 'all' : 'none' }}
+      className={classes.list}
+      variants={listVariants}
+    >
       {pageLinkList.map((item: ButtonItemLinkType) => (
         <motion.li
           className={classes.item}

@@ -34,13 +34,9 @@ interface Props {
 const BurgerMenu: FC<Props> = ({ isNovaPage }) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   return (
-    <motion.nav
-      initial={false}
-      animate={isOpen ? 'open' : 'closed'}
-      style={{ pointerEvents: isOpen ? 'all' : 'none' }}
-    >
+    <motion.nav initial={false} animate={isOpen ? 'open' : 'closed'}>
       <motion.div className={classes.background} variants={sidebar} />
-      <Navigation isNovaPage={isNovaPage} />
+      <Navigation isNovaPage={isNovaPage} isOpen={isOpen} />
       <button className={classes.button} onClick={() => toggleOpen()}>
         <svg width='23' height='23' viewBox='0 0 23 23'>
           <Path
