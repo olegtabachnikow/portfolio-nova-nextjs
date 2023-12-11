@@ -2,24 +2,23 @@ import { FC } from 'react';
 import classes from './IntroTextBlock.module.css';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { useMediaQuery } from 'react-responsive';
 
 interface Props {
-  isDisabled: boolean;
+  isMoved: boolean;
 }
 
-const IntroTextBlock: FC<Props> = ({ isDisabled }) => {
+const IntroTextBlock: FC<Props> = ({ isMoved }) => {
   const { t } = useTranslation();
 
   return (
     <motion.div
       initial={{
-        translateY: -20,
-        opacity: 1,
+        translateY: -15,
+        opacity: 0,
       }}
       animate={{
-        translateY: isDisabled ? -20 : 130,
-        opacity: isDisabled ? 1 : 0,
+        translateY: isMoved ? -15 : 130,
+        opacity: isMoved ? 1 : 0,
       }}
       transition={{ duration: 0.35 }}
       className={classes.container}

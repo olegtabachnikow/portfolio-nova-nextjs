@@ -1,5 +1,10 @@
 {
   "start": "start",
+  "menu": {
+    "intro": "Intro",
+    "about": "About"
+  },
+  "languages": { "en": "English", "ru": "Русский", "iw": "עברית" },
   "welcome1": "Hi, I am Oleg",
   "welcome2": "Frontend Developer",
   "rotate": "Rotate the device",
@@ -16,16 +21,16 @@
   "experience": {
     "title": "work experience",
     "item1": {
+      "company": "Fronet-end Web Deveolper as Srisa",
+      "text": "Leveraged Next.js for server-side rendering and efficient client-side routing, providing a performant and SEO-friendly web application. Implemented Redux Thunk to manage asynchronous actions, state management, and data flow, enabling smooth user interactions and data handling."
+    },
+    "item2": {
       "company": "Front-end Web Developer at Edeal Inc",
       "text": "Conceptualized and developed a comprehensive, reusable component library, streamlining the development process and promoting consistent design across projects."
     },
-    "item2": {
+    "item3": {
       "company": "Front-end Web Developer at Get Robo VPN",
       "text": "Developed a responsive and user-friendly Single Page Application (SPA) for seamless integration into the Telegram Web App Bot."
-    },
-    "item3": {
-      "company": "Teacher Assistant at Yandex",
-      "text": "Diagnosed and resolved complex coding issues, provided one-one mentorship to a group of over 70 students, and enhanced students understanding of best practices in web development."
     },
     "item4": {
       "company": "Front-end Web Developer at Ava Mind",

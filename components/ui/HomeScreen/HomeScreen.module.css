@@ -2,6 +2,7 @@
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #fff;
@@ -12,7 +13,7 @@
   left: 50%;
   height: 1px;
   width: 1px;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 50%;
   box-shadow: -42vw -4vh 0px 0px #fff, 25vw -41vh 0px 0px #fff,
     -20vw 49vh 0px 1px #fff, 5vw 40vh 1px 1px #fff, 29vw 19vh 1px 0px #fff,

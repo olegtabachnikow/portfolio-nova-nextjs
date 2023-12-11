@@ -38,9 +38,9 @@ export const Card: FC = () => {
             ? isContactSection
               ? 450
               : i18n.language === 'en'
-              ? 550
+              ? 570
               : i18n.language === 'ru'
-              ? 595
+              ? 615
               : 580
             : i18n.language === 'en'
             ? 450

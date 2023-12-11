@@ -41,7 +41,9 @@ export const ExperienceItem: FC<Props> = ({ year, title, text }) => {
         }}
       >
         <span className={classes.title}>{title}</span>
-        <p className={classes.text}>{text}</p>
+        <p dir={isHebrew ? 'rtl' : 'ltr'} className={classes.text}>
+          {text}
+        </p>
       </div>
     </div>
   );

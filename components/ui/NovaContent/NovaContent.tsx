@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
 import classes from './NovaContent.module.css';
 import { Nova } from '@/components/Nova/Nova';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,7 +6,7 @@ import { setIsCameraMoving } from '@/redux/nova-is-moving-slice';
 import { setCameraPosition } from '@/redux/nova-position-slice';
 import { Card } from '@/components/ui/Card/Card';
 import { RootState } from '@/redux/store';
-import { LanguageSwitch } from '../LanguageSwitch/LanguageSwitch';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 
 export type CardPageType = 'About' | 'Contact' | 'Experience';
 
@@ -28,16 +28,26 @@ const NovaContent: FC = () => {
   }
 
   useEffect(() => {
-    cardPage === 'About' && handleFirstMove();
-    cardPage === 'Experience' && handleSecondMove();
-    cardPage === 'Contact' && handleThirdMove();
+    switch (cardPage) {
+      case 'About':
+        handleFirstMove();
+        break;
+      case 'Experience':
+        handleSecondMove();
+        break;
+      case 'Contact':
+        handleThirdMove();
+        break;
+      default:
+        break;
+    }
   }, [cardPage]);
 
   return (
     <div className={classes.container}>
-      <Nova />;
+      <Nova />
       <Card />
-      <LanguageSwitch isNovaPage />
+      <BurgerMenu isNovaPage={true} />
     </div>
   );
 };
