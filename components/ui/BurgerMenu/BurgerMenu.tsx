@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { motion, useCycle } from 'framer-motion';
 import classes from './BurgerMenu.module.css';
 import Navigation from '../Navigation/Navigation';
@@ -36,7 +36,7 @@ const BurgerMenu: FC<Props> = ({ isNovaPage }) => {
   return (
     <motion.nav initial={false} animate={isOpen ? 'open' : 'closed'}>
       <motion.div className={classes.background} variants={sidebar} />
-      <Navigation isNovaPage={isNovaPage} isOpen={isOpen} />
+      <Navigation isOpen={isOpen} />
       <button className={classes.button} onClick={() => toggleOpen()}>
         <svg width='23' height='23' viewBox='0 0 23 23'>
           <Path

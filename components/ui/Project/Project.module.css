@@ -1,0 +1,113 @@
+.container {
+  background-color: transparent;
+  width: 300px;
+  min-width: 300px;
+  height: 200px;
+  min-height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+.title,
+.title_light {
+  color: #000;
+  font-family: 'Jost', sans-serif;
+  position: absolute;
+  font-size: 24px;
+  bottom: 20px;
+  right: -10px;
+  display: flex;
+  height: 40px;
+  padding-right: 20px;
+  align-items: center;
+  justify-content: flex-end;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+  width: 170px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.title_light {
+  color: #fff;
+}
+
+.image {
+  cursor: pointer;
+}
+.expand_left,
+.expand_top,
+.expand_top_dark,
+.expand_left_dark {
+  width: 200px;
+  height: 200px;
+  clip-path: polygon(0% 0%, 50% 0, 100% 50%, 50% 100%, 0% 100%);
+  position: absolute;
+}
+
+.expand_left,
+.expand_left_dark {
+  top: 0;
+  background-color: rgba(255, 192, 103, 0.8);
+}
+.expand_top,
+.expand_top_dark {
+  right: 0;
+  transform: rotate(90deg);
+  background-color: rgba(255, 192, 103, 0.6);
+}
+.expand_top_dark {
+  background-color: rgba(107, 60, 163, 0.6);
+}
+.expand_left_dark {
+  background-color: rgba(107, 60, 163, 0.9);
+}
+.plus {
+  position: absolute;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background-color: transparent;
+  right: 20px;
+  top: calc(50% - 15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.stroke {
+  position: absolute;
+  width: 15px;
+  border-radius: 10px;
+  height: 2px;
+  background-color: #000;
+}
+
+.description_container,
+.description_container_light {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 8px;
+  height: calc(100% - 16px);
+  width: 120px;
+  display: flex;
+  overflow-x: hidden;
+  align-items: center;
+  color: #fff;
+}
+
+.description_container_light {
+  color: #000;
+}
+
+.git {
+  position: absolute;
+  left: 120px;
+  bottom: 80px;
+  transform: rotate(-90deg);
+  transition: scale 0.3s linear;
+}
+.git:hover {
+  scale: 1.1;
+}

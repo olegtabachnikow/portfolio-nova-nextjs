@@ -2,7 +2,7 @@ import { FC } from 'react';
 import classes from './Nova.module.css';
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
-import { AdaptiveDpr } from '@react-three/drei';
+import { AdaptiveDpr, OrbitControls } from '@react-three/drei';
 import { Stars } from './Stars';
 import { OrbitControlsHelper } from './OrbitControlsHelper';
 import { useSelector } from 'react-redux';

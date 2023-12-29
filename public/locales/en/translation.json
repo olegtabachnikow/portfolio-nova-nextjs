@@ -2,7 +2,8 @@
   "start": "start",
   "menu": {
     "intro": "Intro",
-    "about": "About"
+    "about": "About",
+    "projects": "Projects"
   },
   "languages": { "en": "English", "ru": "Русский", "iw": "עברית" },
   "welcome1": "Hi, I am Oleg",
@@ -46,5 +47,12 @@
     "about": "about",
     "experience": "experience",
     "contact": "contact"
+  },
+  "projects": {
+    "item1": "The Social Network Icons component is a versatile and customizable React component that allows you to easily display social network icons in your application.",
+    "item2": "React-Codebook is an npm package that provides a versatile environment for writing and executing React.js code snippets.",
+    "item3": "The Number Guessing Game App is an interactive mobile application developed using React Native, designed to engage users in a fun and challenging guessing game.",
+    "item4": "This project is my pet project used only for practice and fun. I discovered before, that Riot Games have an awesome API and this is a core of this project.",
+    "item5": "NextJS Blog is a simple blog application built with Next.js and TypeScript."
   }
 }

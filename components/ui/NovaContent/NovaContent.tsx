@@ -47,7 +47,7 @@ const NovaContent: FC = () => {
     <div className={classes.container}>
       <Nova />
       <Card />
-      <BurgerMenu isNovaPage={true} />
+      <BurgerMenu isNovaPage />
     </div>
   );
 };

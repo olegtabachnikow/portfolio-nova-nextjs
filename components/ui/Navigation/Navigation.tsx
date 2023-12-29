@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next';
 import classes from './Navigation.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const listVariants = {
   open: {
@@ -52,6 +53,12 @@ const pageLinkList: ButtonItemLinkType[] = [
     alt: 'about icon',
     link: '/nova',
   },
+  {
+    page: 'menu.projects',
+    image: 'projects.svg',
+    alt: 'project icon',
+    link: '/projects',
+  },
 ];
 
 const buttonList: ButtonItemLangType[] = [
@@ -73,12 +80,22 @@ const buttonList: ButtonItemLangType[] = [
 ];
 
 interface Props {
-  isNovaPage?: boolean;
   isOpen: boolean;
 }
 
-const Navigation: FC<Props> = ({ isNovaPage, isOpen }) => {
+const Navigation: FC<Props> = ({ isOpen }) => {
   const { t, i18n } = useTranslation('translation');
+  const router = useRouter();
+  const getCurrentPage = () => {
+    const currentQuery = router.route;
+    if (currentQuery.includes('nova')) {
+      return 'nova';
+    }
+    if (currentQuery.includes('projects')) {
+      return 'projects';
+    }
+    return '';
+  };
   return (
     <motion.ul
       style={{ pointerEvents: isOpen ? 'all' : 'none' }}
@@ -115,8 +132,9 @@ const Navigation: FC<Props> = ({ isNovaPage, isOpen }) => {
           whileTap={{ scale: 0.95 }}
         >
           <Link
+            style={{ opacity: i18n.language === item.lang ? 0.7 : 1 }}
             className={classes.link}
-            href={`/${item.lang}${isNovaPage ? '/nova' : ''}`}
+            href={`/${item.lang}/${getCurrentPage()}`}
           >
             <Image
               src={`/images/${item.image}`}
