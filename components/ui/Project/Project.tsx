@@ -43,12 +43,6 @@ const Project: FC<Props> = ({ project }) => {
   return (
     <div
       className={classes.container}
-      style={{
-        filter:
-          theme === 'dark'
-            ? 'drop-shadow(2px 2px 4px rgba(107, 60, 163, 0.9))'
-            : 'drop-shadow(2px 2px 4px rgba(255, 192, 103, 0.9))',
-      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
