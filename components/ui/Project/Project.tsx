@@ -83,8 +83,12 @@ const Project: FC<Props> = ({ project }) => {
         </Link>
       </div>
       <motion.div
-        initial={{ left: -180 }}
-        animate={{ left: isExpanded ? 0 : -140 }}
+        initial={{ transform: 'translate3d(-140px,  0 ,0)' }}
+        animate={{
+          transform: isExpanded
+            ? 'translate3d(0, 0 ,0)'
+            : 'translate3d(-140px, 0 ,0)',
+        }}
         className={
           theme === 'dark' ? classes.expand_left_dark : classes.expand_left
         }

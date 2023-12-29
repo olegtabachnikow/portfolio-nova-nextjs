@@ -26,7 +26,7 @@ const NovaProjectsContent: FC<Props> = ({ children }) => {
 
   return (
     <>
-      <Nova />
+      {/* <Nova /> */}
       <div className={isTabletOrMobile ? classes.list_mobile : classes.list}>
         <div className={classes.overlay} />
         <div
