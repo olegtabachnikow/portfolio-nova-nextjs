@@ -1,141 +1,90 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import classes from './Project.module.css';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { SocialIcon } from 'react-custom-social-icons';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
 export interface ProjectType {
-  theme: string;
   title: string;
   image: string;
   description: string;
   link: string;
   gitLink: string;
+  isNpm: boolean;
+  withPreview: boolean;
+  isTg?: boolean;
 }
-
-const buttonVariants = {
-  expanded: {
-    transform: 'rotate(0deg)',
-    transition: { duration: 0.3 },
-  },
-  notExpanded: {
-    transform: 'rotate(270deg)',
-    transition: { duration: 0.3 },
-  },
-};
 
 interface Props {
   project: ProjectType;
 }
 
 const Project: FC<Props> = ({ project }) => {
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-  const { theme, image, description, gitLink, link, title } = project;
+  const { image, description, gitLink, link, title, isNpm, isTg, withPreview } =
+    project;
   const { t, i18n } = useTranslation('translation');
-
-  const toggleExpand = () => {
-    setIsExpanded((state) => !state);
-  };
-
+  const isHebrew = i18n.language === 'iw';
   return (
-    <div
-      className={classes.container}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div>
-        <Link href={link} target='_blank'>
-          <motion.div
-            animate={{ scale: isHovered ? 1.1 : 1.05 }}
-            initial={{ scale: 1.05 }}
-            transition={{ bounce: 0 }}
-          >
-            <Image
-              className={classes.image}
-              src={image}
-              width={300}
-              height={200}
-              alt='project cover'
-            />
-          </motion.div>
-          <motion.span
-            style={{
-              backgroundColor:
-                theme === 'dark' ? '#6b3ca3' : 'rgb(255, 192, 103)',
-            }}
-            initial={{ scale: 1.2 }}
-            animate={
-              isExpanded ? { scale: 1 } : { scale: 1.2, translateX: '-10%' }
-            }
-            className={theme === 'dark' ? classes.title_light : classes.title}
-          >
-            {title}
-          </motion.span>
-        </Link>
-      </div>
-      <motion.div
-        initial={{ transform: 'translate3d(-140px,  0 ,0)' }}
-        animate={{
-          transform: isExpanded
-            ? 'translate3d(0, 0 ,0)'
-            : 'translate3d(-140px, 0 ,0)',
-        }}
-        className={
-          theme === 'dark' ? classes.expand_left_dark : classes.expand_left
-        }
-      >
-        <motion.button
-          style={{
-            filter:
-              theme === 'dark'
-                ? 'invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%)'
-                : 'none',
-          }}
-          onClick={toggleExpand}
-          className={classes.plus}
-          whileHover={{ opacity: 0.5 }}
-        >
-          <span className={classes.stroke} />
-          <motion.span
-            initial={{
-              transform: 'rotate(90deg)',
-            }}
-            animate={isExpanded ? 'expanded' : 'notExpanded'}
-            variants={buttonVariants}
-            className={classes.stroke}
+    <div className={classes.container}>
+      <Image
+        className={classes.image}
+        src={image}
+        alt={title}
+        width={340}
+        height={200}
+      />
+      <div className={classes.info}>
+        {isNpm && (
+          <Image
+            className={classes.npm}
+            src='/images/npm.svg'
+            width={40}
+            height={15}
+            alt='npm package'
           />
-        </motion.button>
-        <div
-          style={{ fontSize: i18n.language === 'iw' ? '13px' : '14px' }}
-          dir={i18n.language === 'iw' ? 'rtl' : 'ltr'}
-          className={
-            theme === 'dark'
-              ? classes.description_container
-              : classes.description_container_light
-          }
-        >
+        )}
+        <span className={classes.title}>{title}</span>
+        <span dir={isHebrew ? 'rtl' : 'ltr'} className={classes.description}>
           {t(description)}
+        </span>
+        <div
+          className={classes.link_container}
+          style={{ flexDirection: isHebrew ? 'row-reverse' : 'row' }}
+        >
+          <Link
+            style={{ flexDirection: isHebrew ? 'row-reverse' : 'row' }}
+            href={gitLink}
+            className={classes.link}
+            target='_blank'
+          >
+            <SocialIcon
+              network={isTg ? 'telegram' : 'github'}
+              size={40}
+              shape='round'
+            />
+            <span className={classes.link_text}>
+              {isTg ? 'Telegram' : 'GitHub'}
+            </span>
+          </Link>
+          {withPreview && (
+            <Link
+              href={link}
+              className={classes.link}
+              style={{ flexDirection: isHebrew ? 'row-reverse' : 'row' }}
+              target='_blank'
+            >
+              <Image
+                src='/images/magnifier.svg'
+                width={40}
+                height={40}
+                alt='magnifier'
+              />
+              <span className={classes.link_text}>Preview</span>
+            </Link>
+          )}
         </div>
-      </motion.div>
-      <motion.div
-        initial={{ top: -180 }}
-        animate={{ top: isExpanded ? -100 : -170 }}
-        className={
-          theme === 'dark' ? classes.expand_top_dark : classes.expand_top
-        }
-      >
-        <Link href={gitLink} target='_blank'>
-          <SocialIcon
-            network='github'
-            size={40}
-            shape='round'
-            className={classes.git}
-          />
-        </Link>
-      </motion.div>
+      </div>
     </div>
   );
 };

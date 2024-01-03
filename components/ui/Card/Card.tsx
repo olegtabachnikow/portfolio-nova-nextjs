@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
+import CardHeaderAboutContent from '../CardHeaderAboutContent/CardHeaderAboutContent';
 
 export const Card: FC = () => {
   const cardPage = useSelector((state: RootState) => state.cardPage.cardPage);
@@ -51,7 +52,9 @@ export const Card: FC = () => {
       >
         <div className={classes.overlay} />
         <div className={classes.container}>
-          <CardHeader isMoved={isMoved} />
+          <CardHeader isMoved={isMoved}>
+            <CardHeaderAboutContent isMoved={isMoved} />
+          </CardHeader>
           <div className={classes.content}>
             {cardPage === 'About' ? (
               <About />
