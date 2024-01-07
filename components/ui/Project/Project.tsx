@@ -4,17 +4,7 @@ import Image from 'next/image';
 import { SocialIcon } from 'react-custom-social-icons';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-
-export interface ProjectType {
-  title: string;
-  image: string;
-  description: string;
-  link: string;
-  gitLink: string;
-  isNpm: boolean;
-  withPreview: boolean;
-  isTg?: boolean;
-}
+import type { ProjectType } from '@/types/types';
 
 interface Props {
   project: ProjectType;
@@ -60,7 +50,7 @@ const Project: FC<Props> = ({ project }) => {
           >
             <SocialIcon
               network={isTg ? 'telegram' : 'github'}
-              size={40}
+              size={32}
               shape='round'
             />
             <span className={classes.link_text}>
@@ -76,8 +66,8 @@ const Project: FC<Props> = ({ project }) => {
             >
               <Image
                 src='/images/magnifier.svg'
-                width={40}
-                height={40}
+                width={32}
+                height={32}
                 alt='magnifier'
               />
               <span className={classes.link_text}>Preview</span>

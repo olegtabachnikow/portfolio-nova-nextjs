@@ -24,7 +24,6 @@
   );
 }
 .button_border {
-  margin-top: 20px;
   position: relative;
   z-index: 2;
   width: 182px;

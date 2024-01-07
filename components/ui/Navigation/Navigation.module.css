@@ -11,6 +11,9 @@
   display: flex;
   align-items: center;
 }
+.item.active {
+  display: none;
+}
 
 .filler {
   flex: 1;
@@ -39,8 +42,8 @@
 }
 
 .icon {
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   margin-right: 20px;
 }
 

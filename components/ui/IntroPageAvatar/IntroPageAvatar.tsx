@@ -10,12 +10,12 @@ interface Props {
 const IntroPageAvatar: FC<Props> = ({ isMoved, isLaunched }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, transform: 'translateY(70px) scale(0.2)' }}
+      initial={{ opacity: 0, transform: 'translateY(-130px) scale(0.2)' }}
       animate={{
         opacity: 1,
         transform: isLaunched
-          ? 'translateY(70px) scale(0.01)'
-          : 'translateY(0) scale(1)',
+          ? 'translateY(-130px) scale(0.01)'
+          : 'translateY(-130px) scale(1)',
       }}
       transition={{ duration: 0.3 }}
       className={classes.avatar}

@@ -7,6 +7,8 @@ import { setCameraPosition } from '@/redux/nova-position-slice';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { CardHeader } from '../CardHeader/CardHeader';
 import Pagination from '../Pagination/Pagination';
+import Header from '../Header/Header';
+import { useMediaQuery } from 'react-responsive';
 
 interface Props {
   children: React.ReactNode;
@@ -23,6 +25,7 @@ const NovaProjectsContent: FC<Props> = ({
 }) => {
   const dispatch = useDispatch();
   const scrollRef = useRef<HTMLDivElement>(null);
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
   function handleCamera() {
     dispatch(setIsCameraMoving({ isMoving: true }));
@@ -81,7 +84,7 @@ const NovaProjectsContent: FC<Props> = ({
           />
         </div>
       </div>
-      <BurgerMenu />
+      {isTabletOrMobile ? <BurgerMenu /> : <Header isMoved={true} />}
     </>
   );
 };

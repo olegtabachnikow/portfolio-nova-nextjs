@@ -2,13 +2,17 @@ import { FC } from 'react';
 import classes from './Nova.module.css';
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
-import { AdaptiveDpr, OrbitControls } from '@react-three/drei';
+import { AdaptiveDpr } from '@react-three/drei';
 import { Stars } from './Stars';
 import { OrbitControlsHelper } from './OrbitControlsHelper';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
-export const Nova: FC = () => {
+interface Props {
+  isAboutPage?: boolean;
+}
+
+export const Nova: FC<Props> = ({ isAboutPage }) => {
   const cameraPosition = useSelector(
     (state: RootState) => state.cameraPosition
   );
@@ -30,7 +34,7 @@ export const Nova: FC = () => {
       >
         <AdaptiveDpr pixelated />
         <Stars />
-        <OrbitControlsHelper />
+        <OrbitControlsHelper isAboutPage={isAboutPage} />
       </Canvas>
     </div>
   );

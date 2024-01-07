@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { CardPageType } from '@/components/ui/NovaContent/NovaContent';
+import type { CardPageType } from '@/types/types';
 
 type StateType = {
   cardPage: CardPageType;

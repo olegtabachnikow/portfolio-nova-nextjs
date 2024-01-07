@@ -7,11 +7,12 @@ import { setCameraPosition } from '@/redux/nova-position-slice';
 import { Card } from '@/components/ui/Card/Card';
 import { RootState } from '@/redux/store';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
-
-export type CardPageType = 'About' | 'Contact' | 'Experience';
+import { useMediaQuery } from 'react-responsive';
+import Header from '../Header/Header';
 
 const NovaContent: FC = () => {
   const cardPage = useSelector((state: RootState) => state.cardPage.cardPage);
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   const dispatch = useDispatch();
 
   function handleFirstMove() {
@@ -45,9 +46,9 @@ const NovaContent: FC = () => {
 
   return (
     <div className={classes.container}>
-      <Nova />
+      <Nova isAboutPage={true} />
       <Card />
-      <BurgerMenu isNovaPage />
+      {isTabletOrMobile ? <BurgerMenu isNovaPage /> : <Header isMoved={true} />}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classes from './Button.module.css';
 import { useTranslation } from 'next-i18next';
-import { CardPageType } from '../NovaContent/NovaContent';
+import { CardPageType } from '@/types/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 import { setCardPage } from '@/redux/card-page-slice';

@@ -9,6 +9,9 @@ import IntroButton from '@/components/ui/IntroButton/IntroButton';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import BurgerMenu from '@/components/ui/BurgerMenu/BurgerMenu';
+import IntroContentCard from '@/components/ui/IntroContentCard/IntroContentCard';
+import { useMediaQuery } from 'react-responsive';
+import Header from '@/components/ui/Header/Header';
 
 export default function HomePage() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -17,6 +20,7 @@ export default function HomePage() {
   const [isLaunched, setIsLaunched] = useState<boolean>(false);
   const { t } = useTranslation();
   const { locale, push } = useRouter();
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
   useEffect(() => {
     const timeout = setTimeout(() => setLoading(false), 2000);
@@ -44,15 +48,17 @@ export default function HomePage() {
       ) : (
         <>
           <IntroPageAvatar isMoved={isMoved} isLaunched={isLaunched} />
-          <IntroTextBlock isMoved={isMoved} />
-          <IntroButton
-            text={t('start')}
-            onClick={handleClick}
-            isMoved={isMoved}
-          />
+          <IntroContentCard isLaunched={isLaunched}>
+            <IntroTextBlock isMoved={isMoved} />
+            <IntroButton
+              text={t('start')}
+              onClick={handleClick}
+              isMoved={isMoved}
+            />
+          </IntroContentCard>
         </>
       )}
-      <BurgerMenu />
+      {isTabletOrMobile ? <BurgerMenu /> : <Header isMoved={isMoved} />}
     </HomeScreen>
   );
 }

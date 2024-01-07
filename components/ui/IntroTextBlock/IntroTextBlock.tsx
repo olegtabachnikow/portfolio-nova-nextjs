@@ -13,11 +13,11 @@ const IntroTextBlock: FC<Props> = ({ isMoved }) => {
   return (
     <motion.div
       initial={{
-        translateY: -15,
+        translateY: 0,
         opacity: 0,
       }}
       animate={{
-        translateY: isMoved ? -15 : 130,
+        translateY: isMoved ? 0 : 130,
         opacity: isMoved ? 1 : 0,
       }}
       transition={{ duration: 0.35 }}
