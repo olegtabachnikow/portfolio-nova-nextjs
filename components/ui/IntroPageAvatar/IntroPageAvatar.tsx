@@ -14,7 +14,7 @@ const IntroPageAvatar: FC<Props> = ({ isMoved, isLaunched }) => {
       animate={{
         opacity: 1,
         transform: isLaunched
-          ? 'translateY(-130px) scale(0.01)'
+          ? 'translateY(0px) scale(0.01)'
           : 'translateY(-130px) scale(1)',
       }}
       transition={{ duration: 0.3 }}

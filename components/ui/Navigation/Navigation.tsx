@@ -41,8 +41,9 @@ interface Props {
 const Navigation: FC<Props> = ({ isOpen }) => {
   const { t, i18n } = useTranslation('translation');
   const router = useRouter();
+  const currentQuery = router.route;
+
   const getCurrentPage = () => {
-    const currentQuery = router.route;
     if (currentQuery.includes('nova')) {
       return 'nova';
     }
@@ -51,6 +52,7 @@ const Navigation: FC<Props> = ({ isOpen }) => {
     }
     return '';
   };
+
   return (
     <motion.ul
       style={{ pointerEvents: isOpen ? 'all' : 'none' }}

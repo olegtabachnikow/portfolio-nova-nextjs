@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import { current } from '@reduxjs/toolkit';
 
 interface Props {
   isMoved: boolean;
@@ -14,8 +15,9 @@ interface Props {
 const Header: FC<Props> = ({ isMoved }) => {
   const { t, i18n } = useTranslation();
   const router = useRouter();
+  const currentQuery = router.route;
+
   const getCurrentPage = () => {
-    const currentQuery = router.route;
     if (currentQuery.includes('nova')) {
       return 'nova';
     }
@@ -56,7 +58,9 @@ const Header: FC<Props> = ({ isMoved }) => {
           } else {
             return (
               <Link
-                className={classes.link}
+                className={`${classes.link} ${
+                  currentQuery.includes(page.link) ? classes.active : ''
+                }`}
                 href={`/${i18n.language}${page.link}`}
                 key={page.page}
               >

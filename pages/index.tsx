@@ -3,7 +3,6 @@ import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import HomeScreen from '@/components/ui/HomeScreen/HomeScreen';
 import IntroTextBlock from '@/components/ui/IntroTextBlock/IntroTextBlock';
-import Loader from '@/components/ui/Loader/Loader';
 import IntroPageAvatar from '@/components/ui/IntroPageAvatar/IntroPageAvatar';
 import IntroButton from '@/components/ui/IntroButton/IntroButton';
 import { useRouter } from 'next/router';
@@ -14,7 +13,6 @@ import { useMediaQuery } from 'react-responsive';
 import Header from '@/components/ui/Header/Header';
 
 export default function HomePage() {
-  const [loading, setLoading] = useState<boolean>(true);
   const [isStarted, setIsStarted] = useState<boolean>(false);
   const [isMoved, setIsMoved] = useState<boolean>(false);
   const [isLaunched, setIsLaunched] = useState<boolean>(false);
@@ -23,12 +21,7 @@ export default function HomePage() {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
   useEffect(() => {
-    const timeout = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setIsMoved(true), 4000);
+    const timeout = setTimeout(() => setIsMoved(true), 1000);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -43,21 +36,15 @@ export default function HomePage() {
 
   return (
     <HomeScreen isStarted={isStarted}>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <IntroPageAvatar isMoved={isMoved} isLaunched={isLaunched} />
-          <IntroContentCard isLaunched={isLaunched}>
-            <IntroTextBlock isMoved={isMoved} />
-            <IntroButton
-              text={t('start')}
-              onClick={handleClick}
-              isMoved={isMoved}
-            />
-          </IntroContentCard>
-        </>
-      )}
+      <IntroPageAvatar isMoved={isMoved} isLaunched={isLaunched} />
+      <IntroContentCard isLaunched={isLaunched}>
+        <IntroTextBlock isMoved={isMoved} />
+        <IntroButton
+          text={t('start')}
+          onClick={handleClick}
+          isMoved={isMoved}
+        />
+      </IntroContentCard>
       {isTabletOrMobile ? <BurgerMenu /> : <Header isMoved={isMoved} />}
     </HomeScreen>
   );

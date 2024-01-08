@@ -7,6 +7,8 @@ import '../node_modules/normalize.css';
 import Head from 'next/head';
 import { useMediaQuery } from 'react-responsive';
 import Notification from '@/components/ui/Notification/Notification';
+import { Suspense } from 'react';
+import Loader from '@/components/ui/Loader/Loader';
 
 function App({ Component, pageProps }: AppProps) {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
@@ -22,7 +24,9 @@ function App({ Component, pageProps }: AppProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Component {...pageProps} />
+      <Suspense fallback={<Loader />}>
+        <Component {...pageProps} />
+      </Suspense>
       {isTabletOrMobile && isLandscape ? <Notification /> : null}
     </Provider>
   );

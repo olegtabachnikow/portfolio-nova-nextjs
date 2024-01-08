@@ -15,7 +15,7 @@ const IntroContentCard: FC<Props> = ({ children, isLaunched }) => {
       animate={{
         opacity: 1,
         transform: isLaunched
-          ? 'translate(-50%, -30%) scale(0.01)'
+          ? 'translate(-50%, -50%) scale(0.01)'
           : ' translate(-50%, -30%)scale(1)',
       }}
       transition={{ duration: 0.3 }}

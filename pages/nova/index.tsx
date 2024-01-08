@@ -1,18 +1,10 @@
-import { FC, useState, useEffect } from 'react';
+import { FC } from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import NovaContent from '@/components/ui/NovaContent/NovaContent';
-import Loader from '@/components/ui/Loader/Loader';
 
 const NovaPage: FC = () => {
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setLoading(false), 1000);
-    return () => clearTimeout(timeout);
-  });
-
-  return <>{loading ? <Loader /> : <NovaContent />}</>;
+  return <NovaContent />;
 };
 
 export default NovaPage;
