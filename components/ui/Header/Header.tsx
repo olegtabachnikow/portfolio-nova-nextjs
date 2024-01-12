@@ -7,7 +7,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import { current } from '@reduxjs/toolkit';
 
 interface Props {
   isMoved: boolean;
@@ -63,6 +62,9 @@ const Header: FC<Props> = ({ isMoved }) => {
                 }`}
                 href={`/${i18n.language}${page.link}`}
                 key={page.page}
+                style={{
+                  flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
+                }}
               >
                 <Image
                   src={`/images/${page.image}`}
@@ -70,7 +72,13 @@ const Header: FC<Props> = ({ isMoved }) => {
                   height={30}
                   alt='logo'
                 />
-                <span className={classes.text}>{t(page.page)}</span>
+                <span
+                  style={{
+                    margin: i18n.language === 'iw' ? '0 5px 0 0' : '0 0 0 5px',
+                  }}
+                >
+                  {t(page.page)}
+                </span>
               </Link>
             );
           }

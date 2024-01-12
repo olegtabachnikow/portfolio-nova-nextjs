@@ -19,3 +19,11 @@ export interface ProjectType {
   withPreview: boolean;
   isTg?: boolean;
 }
+
+export interface CertificateType {
+  image: string;
+  title: string;
+  author: string;
+  length: number;
+  company: string;
+}

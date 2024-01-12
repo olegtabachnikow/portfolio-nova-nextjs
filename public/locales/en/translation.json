@@ -3,7 +3,7 @@
   "menu": {
     "intro": "Intro",
     "about": "About",
-    "projects": "Projects"
+    "projects": "My Work"
   },
   "languages": { "en": "English", "ru": "Русский", "iw": "עברית" },
   "welcome1": "Hi, I am Oleg",
@@ -49,6 +49,11 @@
     "contact": "contact"
   },
   "projects": {
+    "nav": {
+      "projects": "Projects",
+      "certificates": "Certificates"
+    },
+    "preview": "Preview",
     "item1": "The Social Network Icons component is a versatile and customizable React component that allows you to easily display social network icons in your application.",
     "item2": "React-Codebook is an npm package that provides a versatile environment for writing and executing React.js code snippets.",
     "item3": "This project is my pet project used only for practice and fun. I discovered before, that Riot Games have an awesome API and this is a core of this project.",

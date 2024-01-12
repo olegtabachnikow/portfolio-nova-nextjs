@@ -29,8 +29,21 @@
   justify-self: center;
 }
 .image {
-  -webkit-mask-image: linear-gradient(to top, transparent 1%, black 40%);
-  mask-image: linear-gradient(to top, transparent 1%, black 40%);
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    #000 15%,
+    #000 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    #000 15%,
+    #000 85%,
+    transparent 100%
+  );
 }
 .npm {
   position: absolute;

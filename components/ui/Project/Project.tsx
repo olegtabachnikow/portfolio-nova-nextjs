@@ -70,7 +70,7 @@ const Project: FC<Props> = ({ project }) => {
                 height={32}
                 alt='magnifier'
               />
-              <span className={classes.link_text}>Preview</span>
+              <span className={classes.link_text}>{t('projects.preview')}</span>
             </Link>
           )}
         </div>

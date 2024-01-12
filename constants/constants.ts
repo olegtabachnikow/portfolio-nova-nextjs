@@ -1,4 +1,8 @@
-import { ButtonItemLangType, ButtonItemLinkType } from '@/types/types';
+import {
+  ButtonItemLangType,
+  ButtonItemLinkType,
+  CertificateType,
+} from '@/types/types';
 import { ProjectType } from '@/types/types';
 
 export const pageLinkList: ButtonItemLinkType[] = [
@@ -104,5 +108,50 @@ export const projectData: ProjectType[] = [
     gitLink: 'https://github.com/olegtabachnikow/nextjs-blog',
     isNpm: false,
     withPreview: true,
+  },
+];
+
+export const certificateData: CertificateType[] = [
+  {
+    image: '/images/certificates/practicum.png',
+    title: 'Web Development',
+    company: 'Yandex',
+    author: 'Practicum100',
+    length: 740,
+  },
+  {
+    image: '/images/certificates/nextJS.jpeg',
+    title: 'Next.js & React',
+    company: 'Udemy',
+    author: 'Maximilian Schwarzmüller',
+    length: 33,
+  },
+  {
+    image: '/images/certificates/react-native.jpeg',
+    title: 'React Native',
+    company: 'Udemy',
+    author: 'Maximilian Schwarzmüller',
+    length: 29,
+  },
+  {
+    image: '/images/certificates/react-redux.jpeg',
+    title: 'React + Redux',
+    company: 'Udemy',
+    author: 'Jury Bura',
+    length: 22,
+  },
+  {
+    image: '/images/certificates/react-typescript.jpeg',
+    title: 'React and Typescript',
+    company: 'Udemy',
+    author: 'Stephen Grider',
+    length: 30,
+  },
+  {
+    image: '/images/certificates/typescript-tips.jpeg',
+    title: 'Web Development',
+    company: 'Udemy',
+    author: 'Maurice de Beijer',
+    length: 3.5,
   },
 ];
