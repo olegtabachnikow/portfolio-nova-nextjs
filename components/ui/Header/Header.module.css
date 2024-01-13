@@ -21,27 +21,10 @@
   border-radius: 50%;
   border: 1px solid white;
   overflow: hidden;
-}
-.link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-family: 'Jost', sans-serif;
-  color: #fff;
-  opacity: 0.5;
-}
-.link.active {
-  opacity: 1;
-}
-.logo,
-.link {
   transition: all 0.3s ease;
 }
 .logo:hover {
   opacity: 0.7;
-}
-.link:hover {
-  opacity: 1;
 }
 .image_container {
   width: 30px;

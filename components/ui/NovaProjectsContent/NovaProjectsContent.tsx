@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import classes from './NovaProjectsContent.module.css';
 import { Nova } from '@/components/Nova/Nova';
 import { useDispatch } from 'react-redux';
@@ -17,14 +17,19 @@ import Certificate from '@/components/ui/Certificate/Certificate';
 import { certificateData } from '@/constants/constants';
 import { PhotoProvider } from 'react-photo-view';
 import { useTranslation } from 'react-i18next';
+import ProjectsContentWrapper from '../ProjectsContentWrapper/ProjectsContentWrapper';
+import { RootState } from '@/redux/store';
+import { useSelector } from 'react-redux';
 
 const NovaProjectsContent: FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const isStarted = useSelector(
+    (state: RootState) => state.isStarted.isStarted
+  );
   const [currentWindow, setCurrentWindow] = useState<
     'projects' | 'certificates'
   >('projects');
   const dispatch = useDispatch();
-  const scrollRef = useRef<HTMLDivElement>(null);
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   const { t, i18n } = useTranslation();
 
@@ -42,32 +47,6 @@ const NovaProjectsContent: FC = () => {
     currentWindow === 'projects' ? handleCameraOne() : handleCameraTwo();
   }, [currentWindow]);
 
-  const handleScroll = () => {
-    switch (scrollRef.current?.scrollLeft) {
-      case 0:
-        return setCurrentPage(1);
-      case 340:
-        return setCurrentPage(2);
-      case 680:
-        return setCurrentPage(3);
-      case 1020:
-        return setCurrentPage(4);
-      case 1360:
-        return setCurrentPage(5);
-      case 1700:
-        return setCurrentPage(6);
-      case 2040:
-        return setCurrentPage(7);
-    }
-  };
-
-  useEffect(() => {
-    scrollRef.current?.scrollTo({
-      left: (currentPage - 1) * 340,
-      behavior: 'smooth',
-    });
-  }, [currentPage]);
-
   const handleWindowChange = (page: 'projects' | 'certificates') => {
     if (page === 'projects') {
       setCurrentWindow('projects');
@@ -83,8 +62,19 @@ const NovaProjectsContent: FC = () => {
       <Nova />
       <motion.div
         className={classes.container}
-        initial={{ height: 500 }}
-        animate={{ height: currentWindow === 'certificates' ? 405 : 500 }}
+        initial={{
+          height: 500,
+          transform: isStarted
+            ? 'translate(-50%, -50%) scale(1)'
+            : 'translate(-50%, -50%) scale(0)',
+        }}
+        animate={{
+          height: currentWindow === 'certificates' ? 405 : 500,
+          transform: isStarted
+            ? 'translate(-50%, -50%) scale(1)'
+            : 'translate(-50%, -50%) scale(0)',
+        }}
+        transition={{ duration: 0.7, ease: 'anticipate' }}
       >
         <div className={classes.overlay}>
           <CardHeader isMoved={false} />
@@ -113,28 +103,29 @@ const NovaProjectsContent: FC = () => {
               {t('projects.nav.certificates')}
             </button>
           </div>
-          <motion.div
-            initial={{ opacity: 0, transform: 'translateY(50px)' }}
-            animate={{ opacity: 1, transform: 'translateY(0px)' }}
-            transition={{ duration: 0.2, delay: 0.4 }}
-            ref={scrollRef}
-            onScroll={handleScroll}
-            className={classes.content}
-          >
-            {currentWindow === 'projects' ? (
-              projectData.map((project: ProjectType, i: number) => (
+          {currentWindow === 'projects' ? (
+            <ProjectsContentWrapper
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+            >
+              {projectData.map((project: ProjectType, i: number) => (
                 <Project key={i} project={project} />
-              ))
-            ) : (
-              <PhotoProvider>
+              ))}
+            </ProjectsContentWrapper>
+          ) : (
+            <PhotoProvider bannerVisible={false}>
+              <ProjectsContentWrapper
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              >
                 {certificateData.map(
                   (certificate: CertificateType, i: number) => (
                     <Certificate key={i} certificate={certificate} />
                   )
                 )}
-              </PhotoProvider>
-            )}
-          </motion.div>
+              </ProjectsContentWrapper>
+            </PhotoProvider>
+          )}
           <Pagination
             length={
               currentWindow === 'projects'

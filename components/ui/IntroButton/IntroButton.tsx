@@ -10,24 +10,23 @@ interface Props {
 
 const IntroButton: FC<Props> = ({ text, onClick, isMoved }) => {
   return (
-    <motion.div
+    <motion.button
       initial={{
         translateY: 0,
         opacity: 0,
       }}
       animate={{
         translateY: isMoved ? 0 : 130,
-        opacity: isMoved ? 1 : 0,
+        opacity: isMoved ? 0.8 : 0,
       }}
+      whileHover={{ opacity: 1 }}
       whileTap={{ scale: 0.9 }}
       transition={{ duration: 0.35 }}
-      className={classes.button_border}
+      onClick={onClick}
+      className={classes.button}
     >
-      <button onClick={onClick} className={classes.button}>
-        {text}
-      </button>
-      ;
-    </motion.div>
+      {text}
+    </motion.button>
   );
 };
 

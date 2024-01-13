@@ -1,0 +1,21 @@
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: 'Jost', sans-serif;
+  color: #fff;
+  opacity: 0.5;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.link.active {
+  opacity: 1;
+}
+.link {
+  transition: all 0.3s ease;
+}
+.link:hover {
+  opacity: 1;
+}

@@ -30,7 +30,7 @@ export const Card: FC = () => {
     <motion.div
       initial={{ scale: isStarted ? 1 : 0 }}
       animate={{ scale: isStarted ? 1 : 0 }}
-      transition={{ duration: 1, delay: 0.5, ease: 'backOut' }}
+      transition={{ duration: 0.7, ease: 'anticipate' }}
     >
       <motion.div
         initial={{ height: 450, scale: 1 }}

@@ -7,14 +7,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { setIsStarted } from '@/redux/is-user-started-slice';
+import HeaderPageButton from '../HeaderPageButton/HeaderPageButton';
 
 interface Props {
   isMoved: boolean;
 }
 const Header: FC<Props> = ({ isMoved }) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const router = useRouter();
   const currentQuery = router.route;
+  const dispatch = useDispatch();
 
   const getCurrentPage = () => {
     if (currentQuery.includes('nova')) {
@@ -43,6 +47,7 @@ const Header: FC<Props> = ({ isMoved }) => {
             return (
               <Link
                 className={classes.logo}
+                onClick={() => dispatch(setIsStarted({ isStarted: false }))}
                 key='logo'
                 href={`/${i18n.language}${page.link}`}
               >
@@ -55,32 +60,7 @@ const Header: FC<Props> = ({ isMoved }) => {
               </Link>
             );
           } else {
-            return (
-              <Link
-                className={`${classes.link} ${
-                  currentQuery.includes(page.link) ? classes.active : ''
-                }`}
-                href={`/${i18n.language}${page.link}`}
-                key={page.page}
-                style={{
-                  flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
-                }}
-              >
-                <Image
-                  src={`/images/${page.image}`}
-                  width={30}
-                  height={30}
-                  alt='logo'
-                />
-                <span
-                  style={{
-                    margin: i18n.language === 'iw' ? '0 5px 0 0' : '0 0 0 5px',
-                  }}
-                >
-                  {t(page.page)}
-                </span>
-              </Link>
-            );
+            return <HeaderPageButton page={page} />;
           }
         })}
       </div>

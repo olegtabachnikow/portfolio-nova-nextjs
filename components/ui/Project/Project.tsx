@@ -17,13 +17,7 @@ const Project: FC<Props> = ({ project }) => {
   const isHebrew = i18n.language === 'iw';
   return (
     <div className={classes.container}>
-      <Image
-        className={classes.image}
-        src={image}
-        alt={title}
-        width={340}
-        height={200}
-      />
+      <Image src={image} alt={title} width={340} height={200} />
       <div className={classes.info}>
         {isNpm && (
           <Image

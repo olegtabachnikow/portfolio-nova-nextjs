@@ -124,7 +124,7 @@ export const Stars: FC = () => {
       ref={stars}
       initial={{ scale: isStarted ? 1 : 0 }}
       animate={isStarted ? variants.active : variants.pending}
-      transition={{ delay: 0.5, duration: 1, ease: 'backOut' }}
+      transition={{ duration: 0.7, ease: 'anticipate' }}
     >
       <bufferGeometry attach='geometry' {...geometry} />
       <pointsMaterial

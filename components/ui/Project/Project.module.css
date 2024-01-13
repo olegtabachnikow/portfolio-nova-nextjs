@@ -28,23 +28,6 @@
   margin-block: auto;
   justify-self: center;
 }
-.image {
-  background-color: rgba(0, 0, 0, 0.8);
-  -webkit-mask-image: linear-gradient(
-    to top,
-    transparent 0%,
-    #000 15%,
-    #000 85%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to top,
-    transparent 0%,
-    #000 15%,
-    #000 85%,
-    transparent 100%
-  );
-}
 .npm {
   position: absolute;
   top: 22px;

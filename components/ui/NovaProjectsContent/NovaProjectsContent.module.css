@@ -6,12 +6,10 @@
   overflow: hidden;
   height: 500px;
   top: 50%;
-  transform: translate(-50%, -50%);
   left: 50%;
 }
 .overlay {
   background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(3px);
   position: absolute;
   top: 0;
   left: 0;
@@ -33,20 +31,6 @@
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.8);
-}
-.content {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  height: 100%;
-  overflow-y: hidden;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-}
-.content::-webkit-scrollbar {
-  display: none;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
 }
 .navigation_button {
   width: 50%;
