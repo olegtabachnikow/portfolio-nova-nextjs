@@ -29,6 +29,15 @@ const Header: FC<Props> = ({ isMoved }) => {
     }
     return '';
   };
+
+  const handleNavigateToMain = () => {
+    dispatch(setIsStarted({ isStarted: false }));
+    const timeout = setTimeout(() => {
+      router.push(`/${i18n.language}/`);
+    }, 700);
+    return () => clearTimeout(timeout);
+  };
+
   return (
     <motion.header
       initial={{ top: -50 }}
@@ -45,11 +54,10 @@ const Header: FC<Props> = ({ isMoved }) => {
         {pageLinkList.map((page: ButtonItemLinkType) => {
           if (page.link === '/') {
             return (
-              <Link
+              <div
                 className={classes.logo}
-                onClick={() => dispatch(setIsStarted({ isStarted: false }))}
+                onClick={handleNavigateToMain}
                 key='logo'
-                href={`/${i18n.language}${page.link}`}
               >
                 <Image
                   src='/images/mylogo.png'
@@ -57,7 +65,7 @@ const Header: FC<Props> = ({ isMoved }) => {
                   height={30}
                   alt='logo'
                 />
-              </Link>
+              </div>
             );
           } else {
             return <HeaderPageButton page={page} />;
@@ -82,7 +90,7 @@ const Header: FC<Props> = ({ isMoved }) => {
               <div className={classes.image_container}>
                 <Image
                   src={`/images/${lang.image}`}
-                  width={40}
+                  width={30}
                   height={30}
                   alt='flag'
                 />

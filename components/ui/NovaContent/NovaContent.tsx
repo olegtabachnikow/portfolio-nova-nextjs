@@ -48,7 +48,7 @@ const NovaContent: FC = () => {
     <div className={classes.container}>
       <Nova isAboutPage={true} />
       <Card />
-      {isTabletOrMobile ? <BurgerMenu isNovaPage /> : <Header isMoved={true} />}
+      {isTabletOrMobile ? <BurgerMenu /> : <Header isMoved={true} />}
     </div>
   );
 };

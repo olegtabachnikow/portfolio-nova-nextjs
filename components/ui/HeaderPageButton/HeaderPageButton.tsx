@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { setIsStarted } from '@/redux/is-user-started-slice';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
+import { setCameraPosition } from '@/redux/nova-position-slice';
 
 interface Props {
   page: ButtonItemLinkType;
@@ -22,9 +23,11 @@ const HeaderPageButton: FC<Props> = ({ page }) => {
       return;
     } else {
       dispatch(setIsStarted({ isStarted: false }));
-      setTimeout(() => {
+      dispatch(setCameraPosition({ x: 0, y: 0, z: 0 }));
+      const timeout = setTimeout(() => {
         router.push(`/${i18n.language}${page.link}`);
-      }, 1000);
+      }, 700);
+      return () => clearTimeout(timeout);
     }
   };
 
