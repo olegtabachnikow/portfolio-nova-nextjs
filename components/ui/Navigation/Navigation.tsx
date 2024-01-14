@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { pageLinkList, langButtonList } from '@/constants/constants';
 import type { ButtonItemLangType, ButtonItemLinkType } from '@/types/types';
+import HeaderPageButton from '../HeaderPageButton/HeaderPageButton';
 
 const listVariants = {
   open: {
@@ -55,7 +56,10 @@ const Navigation: FC<Props> = ({ isOpen }) => {
 
   return (
     <motion.ul
-      style={{ pointerEvents: isOpen ? 'all' : 'none' }}
+      style={{
+        pointerEvents: isOpen ? 'all' : 'none',
+        alignItems: i18n.language === 'iw' ? 'flex-end' : 'flex-start',
+      }}
       className={classes.list}
       variants={listVariants}
     >
@@ -67,16 +71,7 @@ const Navigation: FC<Props> = ({ isOpen }) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Link className={classes.link} href={`/${i18n.language}${item.link}`}>
-            <Image
-              className={classes.icon}
-              src={`/images/${item.image}`}
-              alt={item.alt}
-              width={40}
-              height={40}
-            />
-            <span className={classes.text}>{t(item.page)}</span>
-          </Link>
+          <HeaderPageButton page={item} />
         </motion.li>
       ))}
       <li className={classes.filler} />
@@ -89,14 +84,19 @@ const Navigation: FC<Props> = ({ isOpen }) => {
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          style={{
+            alignItems: i18n.language === 'iw' ? 'flex-end' : 'flex-start',
+          }}
         >
           <Link
             className={classes.link}
             href={`/${item.lang}/${getCurrentPage()}`}
+            style={{
+              flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
+            }}
           >
             <Image
               src={`/images/${item.image}`}
-              className={classes.icon}
               width={30}
               height={30}
               alt={item.alt}

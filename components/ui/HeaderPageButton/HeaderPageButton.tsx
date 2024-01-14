@@ -17,27 +17,31 @@ const HeaderPageButton: FC<Props> = ({ page }) => {
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
 
-  const handleClick = () => {
-    dispatch(setIsStarted({ isStarted: false }));
-    setTimeout(() => {
-      router.push(`/${i18n.language}${page.link}`);
-    }, 1000);
+  const handleClick = (link: string) => {
+    if (currentQuery === link) {
+      return;
+    } else {
+      dispatch(setIsStarted({ isStarted: false }));
+      setTimeout(() => {
+        router.push(`/${i18n.language}${page.link}`);
+      }, 1000);
+    }
   };
 
   return (
     <button
       className={`${classes.link} ${
-        currentQuery.includes(page.link) ? classes.active : ''
+        currentQuery === page.link ? classes.active : ''
       }`}
-      onClick={handleClick}
+      onClick={() => handleClick(page.link)}
       style={{
         flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
       }}
     >
-      <Image src={`/images/${page.image}`} width={30} height={30} alt='logo' />
+      <Image src={`/images/${page.image}`} width={25} height={25} alt='logo' />
       <span
         style={{
-          margin: i18n.language === 'iw' ? '0 5px 0 0' : '0 0 0 5px',
+          margin: i18n.language === 'iw' ? '0 10px 0 0' : '0 0 0 10px',
         }}
       >
         {t(page.page)}

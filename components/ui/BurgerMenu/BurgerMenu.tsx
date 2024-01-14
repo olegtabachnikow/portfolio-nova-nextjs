@@ -27,12 +27,9 @@ const Path = (props: any) => (
   <motion.path strokeWidth='3' stroke='#fff' strokeLinecap='round' {...props} />
 );
 
-interface Props {
-  isNovaPage?: boolean;
-}
-
-const BurgerMenu: FC<Props> = ({ isNovaPage }) => {
+const BurgerMenu: FC = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
+
   return (
     <motion.nav initial={false} animate={isOpen ? 'open' : 'closed'}>
       <motion.div className={classes.background} variants={sidebar} />
