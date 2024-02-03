@@ -1,15 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { cameraPosition } from './nova-position-slice';
-import { isCameraMoving } from './nova-is-moving-slice';
-import { isStarted } from './is-user-started-slice';
-import { cardPage } from './card-page-slice';
+import { interfaceSlice } from './interface-slice';
+import { novaSlice } from './nova-slice';
 
 export const store = configureStore({
   reducer: {
-    cameraPosition: cameraPosition.reducer,
-    isCameraMoving: isCameraMoving.reducer,
-    isStarted: isStarted.reducer,
-    cardPage: cardPage.reducer,
+    interface: interfaceSlice.reducer,
+    nova: novaSlice.reducer,
   },
 });
 

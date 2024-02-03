@@ -8,6 +8,10 @@ import { useRouter } from 'next/router';
 import { pageLinkList, langButtonList } from '@/constants/constants';
 import type { ButtonItemLangType, ButtonItemLinkType } from '@/types/types';
 import HeaderPageButton from '../HeaderPageButton/HeaderPageButton';
+import Slider from '../Slider/Slider';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/redux/store';
+import { setIsBurgerMenuOpen } from '@/redux/interface-slice';
 
 const listVariants = {
   open: {
@@ -35,14 +39,18 @@ const itemVariants = {
   },
 };
 
-interface Props {
-  isOpen: boolean;
-}
-
-const Navigation: FC<Props> = ({ isOpen }) => {
+const Navigation: FC = () => {
   const { t, i18n } = useTranslation('translation');
+  const dispatch = useDispatch();
+  const isOpen = useSelector(
+    (state: RootState) => state.interface.isBurgerMenuOpen
+  );
   const router = useRouter();
   const currentQuery = router.route;
+
+  const handleClose = () => {
+    dispatch(setIsBurgerMenuOpen(false));
+  };
 
   const getCurrentPage = () => {
     if (currentQuery.includes('nova')) {
@@ -75,6 +83,17 @@ const Navigation: FC<Props> = ({ isOpen }) => {
         </motion.li>
       ))}
       <li className={classes.filler} />
+      <motion.li key='slider' variants={itemVariants} className={classes.item}>
+        <div
+          className={classes.slider_box}
+          style={{
+            flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
+          }}
+        >
+          <Image src='/images/bulb.svg' width={30} height={30} alt='bulb' />
+          <Slider />
+        </div>
+      </motion.li>
       {langButtonList.map((item: ButtonItemLangType) => (
         <motion.li
           className={`${classes.item} ${
@@ -89,6 +108,7 @@ const Navigation: FC<Props> = ({ isOpen }) => {
           }}
         >
           <Link
+            onClick={handleClose}
             className={classes.link}
             href={`/${item.lang}/${getCurrentPage()}`}
             style={{

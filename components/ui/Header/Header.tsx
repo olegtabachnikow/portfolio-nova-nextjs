@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import classes from './Header.module.css';
 import { motion } from 'framer-motion';
 import { pageLinkList, langButtonList } from '@/constants/constants';
@@ -8,17 +8,20 @@ import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
-import { setIsStarted } from '@/redux/is-user-started-slice';
+import { setIsStarted } from '@/redux/interface-slice';
 import HeaderPageButton from '../HeaderPageButton/HeaderPageButton';
+import Slider from '../Slider/Slider';
 
 interface Props {
   isMoved: boolean;
 }
 const Header: FC<Props> = ({ isMoved }) => {
+  const [isSliderShown, setIsSliderShown] = useState(false);
   const { i18n } = useTranslation();
   const router = useRouter();
   const currentQuery = router.route;
   const dispatch = useDispatch();
+  const hebrewFlexDirection = i18n.language === 'iw' ? 'row-reverse' : 'row';
 
   const getCurrentPage = () => {
     if (currentQuery.includes('nova')) {
@@ -31,7 +34,7 @@ const Header: FC<Props> = ({ isMoved }) => {
   };
 
   const handleNavigateToMain = () => {
-    dispatch(setIsStarted({ isStarted: false }));
+    dispatch(setIsStarted(false));
     const timeout = setTimeout(() => {
       router.push(`/${i18n.language}/`);
     }, 700);
@@ -39,16 +42,14 @@ const Header: FC<Props> = ({ isMoved }) => {
   };
 
   return (
-    <motion.header
-      initial={{ top: -50 }}
-      animate={{ top: isMoved ? 0 : -50 }}
+    <header
       className={classes.header}
-      style={{ flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row' }}
+      style={{ flexDirection: hebrewFlexDirection }}
     >
       <div
         className={classes.pages_list}
         style={{
-          flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
+          flexDirection: hebrewFlexDirection,
         }}
       >
         {pageLinkList.map((page: ButtonItemLinkType) => {
@@ -75,9 +76,36 @@ const Header: FC<Props> = ({ isMoved }) => {
       <div
         className={classes.lang_list}
         style={{
-          flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
+          flexDirection: hebrewFlexDirection,
         }}
       >
+        <div
+          className={classes.slider}
+          style={{ flexDirection: hebrewFlexDirection }}
+        >
+          <motion.div
+            initial={{ translateY: 20, opacity: 0 }}
+            animate={
+              isSliderShown
+                ? { translateY: 0, opacity: 1 }
+                : { translateY: 20, opacity: 0 }
+            }
+            className={classes.slider_box}
+          >
+            <Slider />
+          </motion.div>
+          <Image
+            onClick={() => setIsSliderShown((state) => !state)}
+            src='/images/bulb.svg'
+            className={isSliderShown ? classes.bulb_shown : classes.bulb}
+            width={25}
+            height={25}
+            alt='bulb'
+            style={{
+              margin: i18n.language === 'iw' ? '0 15px 0 0' : '0  0 0 15px',
+            }}
+          />
+        </div>
         {langButtonList.map((lang: ButtonItemLangType) => {
           return (
             <Link
@@ -99,7 +127,7 @@ const Header: FC<Props> = ({ isMoved }) => {
           );
         })}
       </div>
-    </motion.header>
+    </header>
   );
 };
 

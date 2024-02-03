@@ -10,6 +10,7 @@
   padding-inline: 30px;
   justify-content: space-between;
   box-sizing: border-box;
+  overflow: hidden;
 }
 .pages_list {
   display: flex;
@@ -49,4 +50,20 @@
 }
 .lang_button.active {
   display: none;
+}
+.slider,
+.slider_box {
+  display: flex;
+  align-items: center;
+}
+.bulb,
+.bulb_shown {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.bulb:hover,
+.bulb_shown {
+  opacity: 0.7;
 }

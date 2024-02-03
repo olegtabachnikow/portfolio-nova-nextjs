@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsStarted } from '@/redux/is-user-started-slice';
+import { setIsStarted } from '@/redux/interface-slice';
 import { RootState } from '@/redux/store';
 
 const variants = {
@@ -62,11 +62,11 @@ export const Stars: FC = () => {
   const stars = useRef<any>();
   const dispatch = useDispatch();
   const isStarted = useSelector(
-    (state: RootState) => state.isStarted.isStarted
+    (state: RootState) => state.interface.isStarted
   );
 
   useEffect(() => {
-    dispatch(setIsStarted({ isStarted: true }));
+    dispatch(setIsStarted(true));
   }, []);
 
   const onBeforeCompile = (shader: any) => {

@@ -49,3 +49,9 @@
   flex: 1;
   color: #fff;
 }
+
+.slider_box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

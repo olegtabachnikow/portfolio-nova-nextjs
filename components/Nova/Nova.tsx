@@ -13,9 +13,8 @@ interface Props {
 }
 
 export const Nova: FC<Props> = ({ isAboutPage }) => {
-  const cameraPosition = useSelector(
-    (state: RootState) => state.cameraPosition
-  );
+  const cameraPosition = useSelector((state: RootState) => state.nova.position);
+  const opacity = useSelector((state: RootState) => state.interface.opacity);
   const cameraSettings: any = {
     fov: 45,
     near: 0.1,
@@ -23,7 +22,7 @@ export const Nova: FC<Props> = ({ isAboutPage }) => {
     position: [cameraPosition.x, cameraPosition.y, cameraPosition.z],
   };
   return (
-    <div className={classes.nova}>
+    <div className={classes.nova} style={{ opacity: opacity }}>
       <Canvas
         camera={cameraSettings}
         gl={{

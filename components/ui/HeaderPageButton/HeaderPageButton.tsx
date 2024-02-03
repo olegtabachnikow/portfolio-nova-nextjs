@@ -3,10 +3,10 @@ import classes from './HeaderPageButton.module.css';
 import { useRouter } from 'next/router';
 import type { ButtonItemLinkType } from '@/types/types';
 import { useDispatch } from 'react-redux';
-import { setIsStarted } from '@/redux/is-user-started-slice';
+import { setIsStarted } from '@/redux/interface-slice';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
-import { setCameraPosition } from '@/redux/nova-position-slice';
+import { setCameraPosition } from '@/redux/nova-slice';
 
 interface Props {
   page: ButtonItemLinkType;
@@ -22,7 +22,7 @@ const HeaderPageButton: FC<Props> = ({ page }) => {
     if (currentQuery === link) {
       return;
     } else {
-      dispatch(setIsStarted({ isStarted: false }));
+      dispatch(setIsStarted(false));
       dispatch(setCameraPosition({ x: 0, y: 0, z: 0 }));
       const timeout = setTimeout(() => {
         router.push(`/${i18n.language}${page.link}`);

@@ -1,7 +1,10 @@
-import { FC } from 'react';
-import { motion, useCycle } from 'framer-motion';
+import { FC, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import classes from './BurgerMenu.module.css';
 import Navigation from '../Navigation/Navigation';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '@/redux/store';
+import { setIsBurgerMenuOpen } from '@/redux/interface-slice';
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -28,13 +31,42 @@ const Path = (props: any) => (
 );
 
 const BurgerMenu: FC = () => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
+  const isOpen = useSelector(
+    (state: RootState) => state.interface.isBurgerMenuOpen
+  );
+  const dispatch = useDispatch();
+  const burgerMenuRef = useRef<HTMLElement>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    const targetElement = event.target as HTMLElement;
+    if (
+      burgerMenuRef.current &&
+      !burgerMenuRef.current.contains(targetElement)
+    ) {
+      dispatch(setIsBurgerMenuOpen(false));
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
-    <motion.nav initial={false} animate={isOpen ? 'open' : 'closed'}>
+    <motion.nav
+      ref={burgerMenuRef}
+      initial={false}
+      animate={isOpen ? 'open' : 'closed'}
+    >
       <motion.div className={classes.background} variants={sidebar} />
-      <Navigation isOpen={isOpen} />
-      <button className={classes.button} onClick={() => toggleOpen()}>
+      <Navigation />
+      <button
+        className={classes.button}
+        onClick={() => dispatch(setIsBurgerMenuOpen(!isOpen))}
+      >
         <svg width='23' height='23' viewBox='0 0 23 23'>
           <Path
             variants={{

@@ -2,8 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import classes from './NovaProjectsContent.module.css';
 import { Nova } from '@/components/Nova/Nova';
 import { useDispatch } from 'react-redux';
-import { setIsCameraMoving } from '@/redux/nova-is-moving-slice';
-import { setCameraPosition } from '@/redux/nova-position-slice';
+import { setIsCameraMoving, setCameraPosition } from '@/redux/nova-slice';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { CardHeader } from '../CardHeader/CardHeader';
 import Pagination from '../Pagination/Pagination';
@@ -24,7 +23,7 @@ import { useSelector } from 'react-redux';
 const NovaProjectsContent: FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const isStarted = useSelector(
-    (state: RootState) => state.isStarted.isStarted
+    (state: RootState) => state.interface.isStarted
   );
   const [currentWindow, setCurrentWindow] = useState<
     'projects' | 'certificates'
@@ -34,12 +33,12 @@ const NovaProjectsContent: FC = () => {
   const { t, i18n } = useTranslation();
 
   function handleCameraOne() {
-    dispatch(setIsCameraMoving({ isMoving: true }));
+    dispatch(setIsCameraMoving(true));
     dispatch(setCameraPosition({ x: 13, y: 0, z: 0 }));
   }
 
   function handleCameraTwo() {
-    dispatch(setIsCameraMoving({ isMoving: true }));
+    dispatch(setIsCameraMoving(true));
     dispatch(setCameraPosition({ x: 0, y: 12, z: 0 }));
   }
 

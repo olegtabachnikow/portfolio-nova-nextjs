@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { CardPageType } from '@/types/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
-import { setCardPage } from '@/redux/card-page-slice';
+import { setCardPage } from '@/redux/interface-slice';
 
 interface Props {
   text: CardPageType;
@@ -12,7 +12,7 @@ interface Props {
 
 export const Button: FC<Props> = ({ text }) => {
   const dispatch = useDispatch();
-  const cardPage = useSelector((state: RootState) => state.cardPage.cardPage);
+  const cardPage = useSelector((state: RootState) => state.interface.cardPage);
   const { t } = useTranslation('translation');
   function getText(str: string) {
     if (str === 'About') {
@@ -28,7 +28,7 @@ export const Button: FC<Props> = ({ text }) => {
   const isActive = cardPage === text;
 
   function handleClick() {
-    dispatch(setCardPage({ cardPage: text }));
+    dispatch(setCardPage(text));
   }
   return (
     <button

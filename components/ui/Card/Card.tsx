@@ -12,11 +12,11 @@ import { RootState } from '@/redux/store';
 import CardHeaderAboutContent from '../CardHeaderAboutContent/CardHeaderAboutContent';
 
 export const Card: FC = () => {
-  const cardPage = useSelector((state: RootState) => state.cardPage.cardPage);
+  const cardPage = useSelector((state: RootState) => state.interface.cardPage);
   const [isMoved, setIsMoved] = useState<boolean>(false);
   const [isContactSection, setIsContactSection] = useState<boolean>(false);
   const isStarted = useSelector(
-    (state: RootState) => state.isStarted.isStarted
+    (state: RootState) => state.interface.isStarted
   );
   const { i18n } = useTranslation();
   useEffect(() => {
