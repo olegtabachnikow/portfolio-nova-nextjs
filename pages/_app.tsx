@@ -9,6 +9,7 @@ import { useMediaQuery } from 'react-responsive';
 import Notification from '@/components/ui/Notification/Notification';
 import { Suspense } from 'react';
 import Loader from '@/components/ui/Loader/Loader';
+import AnimatedCursor from 'react-animated-cursor';
 
 function App({ Component, pageProps }: AppProps) {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
@@ -25,6 +26,20 @@ function App({ Component, pageProps }: AppProps) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Suspense fallback={<Loader />}>
+        <AnimatedCursor
+          innerSize={8}
+          outerSize={30}
+          innerScale={1}
+          outerScale={1.5}
+          outerAlpha={0.1}
+          innerStyle={{
+            backgroundColor: '#fff',
+          }}
+          outerStyle={{
+            border: '3px solid #fff',
+            backgroundColor: 'rgba(0,0,0, 0.7)',
+          }}
+        />
         <Component {...pageProps} />
       </Suspense>
       {isTabletOrMobile && isLandscape ? <Notification /> : null}

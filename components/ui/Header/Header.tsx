@@ -55,18 +55,14 @@ const Header: FC<Props> = ({ isMoved }) => {
         {pageLinkList.map((page: ButtonItemLinkType) => {
           if (page.link === '/') {
             return (
-              <div
-                className={classes.logo}
-                onClick={handleNavigateToMain}
-                key='logo'
-              >
+              <button className={classes.logo} onClick={handleNavigateToMain}>
                 <Image
                   src='/images/mylogo.png'
                   width={30}
                   height={30}
                   alt='logo'
                 />
-              </div>
+              </button>
             );
           } else {
             return <HeaderPageButton page={page} />;
@@ -94,17 +90,15 @@ const Header: FC<Props> = ({ isMoved }) => {
           >
             <Slider />
           </motion.div>
-          <Image
-            onClick={() => setIsSliderShown((state) => !state)}
-            src='/images/bulb.svg'
+          <button
             className={isSliderShown ? classes.bulb_shown : classes.bulb}
-            width={25}
-            height={25}
-            alt='bulb'
+            onClick={() => setIsSliderShown((state) => !state)}
             style={{
               margin: i18n.language === 'iw' ? '0 15px 0 0' : '0  0 0 15px',
             }}
-          />
+          >
+            <Image src='/images/bulb.svg' width={25} height={25} alt='bulb' />
+          </button>
         </div>
         {langButtonList.map((lang: ButtonItemLangType) => {
           return (

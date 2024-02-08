@@ -8,6 +8,7 @@ import { RootState } from '@/redux/store';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { useMediaQuery } from 'react-responsive';
 import Header from '../Header/Header';
+import RotationBox from '../RotationBox/RotationBox';
 
 const NovaContent: FC = () => {
   const cardPage = useSelector((state: RootState) => state.interface.cardPage);
@@ -46,7 +47,9 @@ const NovaContent: FC = () => {
   return (
     <div className={classes.container}>
       <Nova isAboutPage={true} />
-      <Card />
+      <RotationBox>
+        <Card />
+      </RotationBox>
       {isTabletOrMobile ? <BurgerMenu /> : <Header isMoved={true} />}
     </div>
   );

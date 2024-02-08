@@ -7,6 +7,7 @@ import { setIsStarted } from '@/redux/interface-slice';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import { setCameraPosition } from '@/redux/nova-slice';
+import { setIsBurgerMenuOpen } from '@/redux/interface-slice';
 
 interface Props {
   page: ButtonItemLinkType;
@@ -22,6 +23,7 @@ const HeaderPageButton: FC<Props> = ({ page }) => {
     if (currentQuery === link) {
       return;
     } else {
+      dispatch(setIsBurgerMenuOpen(false));
       dispatch(setIsStarted(false));
       dispatch(setCameraPosition({ x: 0, y: 0, z: 0 }));
       const timeout = setTimeout(() => {

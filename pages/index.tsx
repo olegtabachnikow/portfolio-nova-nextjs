@@ -11,6 +11,7 @@ import BurgerMenu from '@/components/ui/BurgerMenu/BurgerMenu';
 import IntroContentCard from '@/components/ui/IntroContentCard/IntroContentCard';
 import { useMediaQuery } from 'react-responsive';
 import Header from '@/components/ui/Header/Header';
+import RotationBox from '@/components/ui/RotationBox/RotationBox';
 
 export default function HomePage() {
   const [isStarted, setIsStarted] = useState<boolean>(false);
@@ -36,15 +37,17 @@ export default function HomePage() {
 
   return (
     <HomeScreen isStarted={isStarted}>
-      <IntroPageAvatar isMoved={isMoved} isLaunched={isLaunched} />
-      <IntroContentCard isLaunched={isLaunched}>
-        <IntroTextBlock isMoved={isMoved} />
-        <IntroButton
-          text={t('start')}
-          onClick={handleClick}
-          isMoved={isMoved}
-        />
-      </IntroContentCard>
+      <RotationBox>
+        <IntroPageAvatar isMoved={isMoved} isLaunched={isLaunched} />
+        <IntroContentCard isLaunched={isLaunched}>
+          <IntroTextBlock isMoved={isMoved} />
+          <IntroButton
+            text={t('start')}
+            onClick={handleClick}
+            isMoved={isMoved}
+          />
+        </IntroContentCard>
+      </RotationBox>
       {isTabletOrMobile ? <BurgerMenu /> : <Header isMoved={isMoved} />}
     </HomeScreen>
   );

@@ -19,6 +19,7 @@ import { useTranslation } from 'react-i18next';
 import ProjectsContentWrapper from '../ProjectsContentWrapper/ProjectsContentWrapper';
 import { RootState } from '@/redux/store';
 import { useSelector } from 'react-redux';
+import RotationBox from '../RotationBox/RotationBox';
 
 const NovaProjectsContent: FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -57,87 +58,89 @@ const NovaProjectsContent: FC = () => {
   };
 
   return (
-    <>
+    <div className={classes.container}>
       <Nova />
-      <motion.div
-        className={classes.container}
-        initial={{
-          height: 500,
-          transform: isStarted
-            ? 'translate(-50%, -50%) scale(1)'
-            : 'translate(-50%, -50%) scale(0)',
-        }}
-        animate={{
-          height: currentWindow === 'certificates' ? 405 : 500,
-          transform: isStarted
-            ? 'translate(-50%, -50%) scale(1)'
-            : 'translate(-50%, -50%) scale(0)',
-        }}
-        transition={{ duration: 0.7, ease: 'anticipate' }}
-      >
-        <div className={classes.overlay}>
-          <CardHeader isMoved={false} />
-        </div>
-        <div className={classes.container_inner}>
-          <div
-            className={classes.navigation}
-            style={{
-              flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
-            }}
-          >
-            <button
-              onClick={() => handleWindowChange('projects')}
-              className={`${classes.navigation_button} ${
-                currentWindow === 'projects' ? classes.active : ''
-              }`}
-            >
-              {t('projects.nav.projects')}
-            </button>
-            <button
-              onClick={() => handleWindowChange('certificates')}
-              className={`${classes.navigation_button} ${
-                currentWindow === 'certificates' ? classes.active : ''
-              }`}
-            >
-              {t('projects.nav.certificates')}
-            </button>
+      <RotationBox>
+        <motion.div
+          className={classes.box}
+          initial={{
+            height: 500,
+            transform: isStarted
+              ? 'translate(-50%, -50%) scale(1)'
+              : 'translate(-50%, -50%) scale(0)',
+          }}
+          animate={{
+            height: currentWindow === 'certificates' ? 405 : 500,
+            transform: isStarted
+              ? 'translate(-50%, -50%) scale(1)'
+              : 'translate(-50%, -50%) scale(0)',
+          }}
+          transition={{ duration: 0.7, ease: 'anticipate' }}
+        >
+          <div className={classes.overlay}>
+            <CardHeader isMoved={false} />
           </div>
-          {currentWindow === 'projects' ? (
-            <ProjectsContentWrapper
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
+          <div className={classes.container_inner}>
+            <div
+              className={classes.navigation}
+              style={{
+                flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
+              }}
             >
-              {projectData.map((project: ProjectType, i: number) => (
-                <Project key={i} project={project} />
-              ))}
-            </ProjectsContentWrapper>
-          ) : (
-            <PhotoProvider bannerVisible={false}>
+              <button
+                onClick={() => handleWindowChange('projects')}
+                className={`${classes.navigation_button} ${
+                  currentWindow === 'projects' ? classes.active : ''
+                }`}
+              >
+                {t('projects.nav.projects')}
+              </button>
+              <button
+                onClick={() => handleWindowChange('certificates')}
+                className={`${classes.navigation_button} ${
+                  currentWindow === 'certificates' ? classes.active : ''
+                }`}
+              >
+                {t('projects.nav.certificates')}
+              </button>
+            </div>
+            {currentWindow === 'projects' ? (
               <ProjectsContentWrapper
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
               >
-                {certificateData.map(
-                  (certificate: CertificateType, i: number) => (
-                    <Certificate key={i} certificate={certificate} />
-                  )
-                )}
+                {projectData.map((project: ProjectType, i: number) => (
+                  <Project key={i} project={project} />
+                ))}
               </ProjectsContentWrapper>
-            </PhotoProvider>
-          )}
-          <Pagination
-            length={
-              currentWindow === 'projects'
-                ? projectData.length
-                : certificateData.length
-            }
-            page={currentPage}
-            setPage={setCurrentPage}
-          />
-        </div>
-      </motion.div>
+            ) : (
+              <PhotoProvider bannerVisible={false}>
+                <ProjectsContentWrapper
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                >
+                  {certificateData.map(
+                    (certificate: CertificateType, i: number) => (
+                      <Certificate key={i} certificate={certificate} />
+                    )
+                  )}
+                </ProjectsContentWrapper>
+              </PhotoProvider>
+            )}
+            <Pagination
+              length={
+                currentWindow === 'projects'
+                  ? projectData.length
+                  : certificateData.length
+              }
+              page={currentPage}
+              setPage={setCurrentPage}
+            />
+          </div>
+        </motion.div>
+      </RotationBox>
       {isTabletOrMobile ? <BurgerMenu /> : <Header isMoved={true} />}
-    </>
+    </div>
   );
 };
 

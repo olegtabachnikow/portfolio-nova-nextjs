@@ -60,6 +60,7 @@ const BurgerMenu: FC = () => {
       ref={burgerMenuRef}
       initial={false}
       animate={isOpen ? 'open' : 'closed'}
+      style={{ zIndex: 2 }}
     >
       <motion.div className={classes.background} variants={sidebar} />
       <Navigation />
