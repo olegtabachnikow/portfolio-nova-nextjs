@@ -5,14 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setIsCameraMoving, setCameraPosition } from '@/redux/nova-slice';
 import { Card } from '@/components/ui/Card/Card';
 import { RootState } from '@/redux/store';
-import BurgerMenu from '../BurgerMenu/BurgerMenu';
-import { useMediaQuery } from 'react-responsive';
-import Header from '../Header/Header';
 import RotationBox from '../RotationBox/RotationBox';
 
 const NovaContent: FC = () => {
   const cardPage = useSelector((state: RootState) => state.interface.cardPage);
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   const dispatch = useDispatch();
 
   function handleFirstMove() {
@@ -50,7 +46,6 @@ const NovaContent: FC = () => {
       <RotationBox>
         <Card />
       </RotationBox>
-      {isTabletOrMobile ? <BurgerMenu /> : <Header isMoved={true} />}
     </div>
   );
 };

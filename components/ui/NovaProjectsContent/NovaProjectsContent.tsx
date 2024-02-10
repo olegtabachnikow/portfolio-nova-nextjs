@@ -139,7 +139,6 @@ const NovaProjectsContent: FC = () => {
           </div>
         </motion.div>
       </RotationBox>
-      {isTabletOrMobile ? <BurgerMenu /> : <Header isMoved={true} />}
     </div>
   );
 };

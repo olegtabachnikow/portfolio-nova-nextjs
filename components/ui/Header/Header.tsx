@@ -12,10 +12,7 @@ import { setIsStarted } from '@/redux/interface-slice';
 import HeaderPageButton from '../HeaderPageButton/HeaderPageButton';
 import Slider from '../Slider/Slider';
 
-interface Props {
-  isMoved: boolean;
-}
-const Header: FC<Props> = ({ isMoved }) => {
+const Header: FC = () => {
   const [isSliderShown, setIsSliderShown] = useState(false);
   const { i18n } = useTranslation();
   const router = useRouter();

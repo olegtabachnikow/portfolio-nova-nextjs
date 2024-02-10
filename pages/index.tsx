@@ -7,10 +7,7 @@ import IntroPageAvatar from '@/components/ui/IntroPageAvatar/IntroPageAvatar';
 import IntroButton from '@/components/ui/IntroButton/IntroButton';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
-import BurgerMenu from '@/components/ui/BurgerMenu/BurgerMenu';
 import IntroContentCard from '@/components/ui/IntroContentCard/IntroContentCard';
-import { useMediaQuery } from 'react-responsive';
-import Header from '@/components/ui/Header/Header';
 import RotationBox from '@/components/ui/RotationBox/RotationBox';
 
 export default function HomePage() {
@@ -19,7 +16,6 @@ export default function HomePage() {
   const [isLaunched, setIsLaunched] = useState<boolean>(false);
   const { t } = useTranslation();
   const { locale, push } = useRouter();
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsMoved(true), 1000);
@@ -48,7 +44,6 @@ export default function HomePage() {
           />
         </IntroContentCard>
       </RotationBox>
-      {isTabletOrMobile ? <BurgerMenu /> : <Header isMoved={isMoved} />}
     </HomeScreen>
   );
 }
