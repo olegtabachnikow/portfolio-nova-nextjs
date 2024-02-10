@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import useMouseRotation from '@/hooks/useMouseRotation';
+import { isDesktop } from 'react-device-detect';
 
 interface Props {
   children: React.ReactNode;
@@ -7,6 +8,9 @@ interface Props {
 
 const RotationBox: FC<Props> = ({ children }) => {
   const { rotation, handleMouseMove } = useMouseRotation();
+  const handleRotation = () => {
+    return isDesktop ? handleMouseMove : null;
+  };
   return (
     <div
       style={{
@@ -17,7 +21,7 @@ const RotationBox: FC<Props> = ({ children }) => {
         alignItems: 'center',
         zIndex: 1,
       }}
-      onMouseMove={handleMouseMove}
+      onMouseMove={handleRotation}
     >
       <div
         style={{
