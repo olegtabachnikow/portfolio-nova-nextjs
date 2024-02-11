@@ -9,6 +9,7 @@
   cursor: pointer;
   background: linear-gradient(100deg, #000 0%, #fff 100%);
   border-radius: 50%;
+  outline: none;
 }
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
