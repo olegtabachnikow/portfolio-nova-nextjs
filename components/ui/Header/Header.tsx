@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import classes from './Header.module.css';
 import { motion } from 'framer-motion';
 import { pageLinkList, langButtonList } from '@/constants/constants';
@@ -20,6 +20,16 @@ const Header: FC = () => {
   const dispatch = useDispatch();
   const hebrewFlexDirection = i18n.language === 'iw' ? 'row-reverse' : 'row';
 
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (isSliderShown) {
+      timeout = setTimeout(() => {
+        setIsSliderShown(false);
+      }, 10000);
+    }
+    return () => clearTimeout(timeout);
+  }, [isSliderShown]);
+
   const getCurrentPage = () => {
     if (currentQuery.includes('nova')) {
       return 'nova';
@@ -27,7 +37,9 @@ const Header: FC = () => {
     if (currentQuery.includes('projects')) {
       return 'projects';
     }
-    return '';
+    if (currentQuery.includes('contact')) {
+      return 'contact';
+    }
   };
 
   const handleNavigateToMain = () => {
@@ -52,7 +64,11 @@ const Header: FC = () => {
         {pageLinkList.map((page: ButtonItemLinkType) => {
           if (page.link === '/') {
             return (
-              <button className={classes.logo} onClick={handleNavigateToMain}>
+              <button
+                className={classes.logo}
+                onClick={handleNavigateToMain}
+                key='logo'
+              >
                 <Image
                   src='/images/mylogo.png'
                   width={30}
@@ -62,7 +78,7 @@ const Header: FC = () => {
               </button>
             );
           } else {
-            return <HeaderPageButton page={page} />;
+            return <HeaderPageButton page={page} key={page.page} />;
           }
         })}
       </div>

@@ -3,7 +3,7 @@ import {
   ButtonItemLinkType,
   CertificateType,
 } from '@/types/types';
-import { ProjectType } from '@/types/types';
+import { ProjectType, SkillListType } from '@/types/types';
 
 export const pageLinkList: ButtonItemLinkType[] = [
   {
@@ -23,6 +23,12 @@ export const pageLinkList: ButtonItemLinkType[] = [
     image: 'projects.svg',
     alt: 'project icon',
     link: '/projects',
+  },
+  {
+    page: 'menu.contact',
+    image: 'message.svg',
+    alt: 'contact icon',
+    link: '/contact',
   },
 ];
 
@@ -155,3 +161,20 @@ export const certificateData: CertificateType[] = [
     length: 3.5,
   },
 ];
+
+export const SkillList: SkillListType[] = [
+  { image: '/images/skills/react.svg', title: 'React' },
+  { image: '/images/skills/redux.svg', title: 'Redux' },
+  { image: '/images/skills/typescript.svg', title: 'Typescript' },
+  { image: '/images/skills/javascript.svg', title: 'Javascript' },
+  { image: '/images/skills/nextjs.svg', title: 'NextJS' },
+  { image: '/images/skills/framer.jpeg', title: 'Framer Motion' },
+  { image: '/images/skills/i18n.png', title: 'i18n' },
+  { image: '/images/skills/node.svg', title: 'NodeJS' },
+  { image: '/images/skills/mongodb.svg', title: 'MongoDB' },
+  { image: '/images/skills/express.svg', title: 'ExpressJS' },
+  { image: '/images/skills/html.svg', title: 'HTML5' },
+  { image: '/images/skills/css.svg', title: 'CSS3' },
+];
+
+export const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;

@@ -15,7 +15,7 @@ import Header from '@/components/ui/Header/Header';
 import { isMobile, isDesktop } from 'react-device-detect';
 
 function App({ Component, pageProps }: AppProps) {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 600px)' });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 800px)' });
   const isLandscape = useMediaQuery({ query: '(orientation: landscape)' });
   return (
     <Provider store={store}>

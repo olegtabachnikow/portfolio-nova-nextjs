@@ -8,7 +8,6 @@ import IntroButton from '@/components/ui/IntroButton/IntroButton';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import IntroContentCard from '@/components/ui/IntroContentCard/IntroContentCard';
-import RotationBox from '@/components/ui/RotationBox/RotationBox';
 
 export default function HomePage() {
   const [isStarted, setIsStarted] = useState<boolean>(false);
@@ -33,17 +32,15 @@ export default function HomePage() {
 
   return (
     <HomeScreen isStarted={isStarted}>
-      <RotationBox>
-        <IntroPageAvatar isMoved={isMoved} isLaunched={isLaunched} />
-        <IntroContentCard isLaunched={isLaunched}>
-          <IntroTextBlock isMoved={isMoved} />
-          <IntroButton
-            text={t('start')}
-            onClick={handleClick}
-            isMoved={isMoved}
-          />
-        </IntroContentCard>
-      </RotationBox>
+      <IntroPageAvatar isMoved={isMoved} isLaunched={isLaunched} />
+      <IntroContentCard isLaunched={isLaunched}>
+        <IntroTextBlock isMoved={isMoved} />
+        <IntroButton
+          text={t('start')}
+          onClick={handleClick}
+          isMoved={isMoved}
+        />
+      </IntroContentCard>
     </HomeScreen>
   );
 }

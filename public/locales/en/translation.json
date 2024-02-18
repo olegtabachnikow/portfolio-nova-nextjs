@@ -3,7 +3,8 @@
   "menu": {
     "intro": "Intro",
     "about": "About",
-    "projects": "My Work"
+    "projects": "My Work",
+    "contact": "Contacts"
   },
   "languages": { "en": "English", "ru": "Русский", "iw": "עברית" },
   "welcome1": "Hi, I am Oleg",
@@ -39,14 +40,17 @@
     }
   },
   "contact": {
-    "title": "contact",
+    "title": "contact me",
     "button": "download cv",
     "address": "Sderot Sheshet HaYamim 30, Tel Aviv-Jaffa"
+  },
+  "skills": {
+    "title": "skills"
   },
   "footer": {
     "about": "about",
     "experience": "experience",
-    "contact": "contact"
+    "skills": "skills"
   },
   "projects": {
     "nav": {
@@ -61,5 +65,8 @@
     "item5": "Responsive and user-friendly Single Page Application (SPA) for seamless integration into the Telegram Web App Bot.",
     "item6": "Favorite Places, your go-to app for discovering new places, capturing vivid memories, and effortlessly managing your favorite locations.",
     "item7": "NextJS Blog is a simple blog application built with Next.js and TypeScript."
+  },
+  "form": {
+    "title": "Message me"
   }
 }

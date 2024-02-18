@@ -4,16 +4,6 @@
   color: rgba(255, 255, 255, 0.7);
   margin: 10px 0;
 }
-.iconbox {
-  display: flex;
-}
-.icon {
-  margin-right: 10px;
-  transition: all 0.2s linear;
-}
-.icon:hover {
-  transform: scale(1.1);
-}
 .title {
   font-family: 'Jost', sans-serif;
   color: white;

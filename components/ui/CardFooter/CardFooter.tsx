@@ -12,7 +12,7 @@ export const CardFooter: FC = () => {
     >
       <Button text='About' />
       <Button text='Experience' />
-      <Button text='Contact' />
+      <Button text='Skills' />
     </div>
   );
 };
