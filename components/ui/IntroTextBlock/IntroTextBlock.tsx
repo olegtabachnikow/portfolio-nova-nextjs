@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import classes from './IntroTextBlock.module.css';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { motion } from 'framer-motion';
 
 interface Props {

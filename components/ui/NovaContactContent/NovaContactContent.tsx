@@ -22,12 +22,12 @@ const NovaContactContent: FC = () => {
 
   function handleCameraOne() {
     dispatch(setIsCameraMoving(true));
-    dispatch(setCameraPosition({ x: 13, y: 0, z: 0 }));
+    dispatch(setCameraPosition({ x: 13, y: 10, z: 30 }));
   }
 
   function handleCameraTwo() {
     dispatch(setIsCameraMoving(true));
-    dispatch(setCameraPosition({ x: 0, y: 12, z: 0 }));
+    dispatch(setCameraPosition({ x: 13, y: -10, z: 30 }));
   }
 
   useEffect(() => {

@@ -13,7 +13,10 @@ export const CardContentWrapper: FC<Props> = ({ children }) => {
       initial={{ opacity: 0, transform: 'translateY(50px)' }}
       animate={{ opacity: 1, transform: 'translateY(0px)' }}
       transition={{ duration: 0.2, delay: 0.4 }}
-      style={{ textAlign: i18n.language === 'iw' ? 'right' : 'left' }}
+      style={{
+        textAlign: i18n.language === 'iw' ? 'right' : 'left',
+        height: '100%',
+      }}
     >
       {children}
     </motion.div>

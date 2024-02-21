@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import classes from './NovaProjectsContent.module.css';
 import { Nova } from '@/components/Nova/Nova';
 import { useDispatch } from 'react-redux';
 import { setIsCameraMoving, setCameraPosition } from '@/redux/nova-slice';
 import { CardHeader } from '../CardHeader/CardHeader';
-import Pagination from '../Pagination/Pagination';
 import { motion } from 'framer-motion';
 import Project from '@/components/ui/Project/Project';
 import type { CertificateType, ProjectType } from '@/types/types';
@@ -12,10 +12,14 @@ import { projectData } from '@/constants/constants';
 import Certificate from '@/components/ui/Certificate/Certificate';
 import { certificateData } from '@/constants/constants';
 import { PhotoProvider } from 'react-photo-view';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import ProjectsContentWrapper from '../ProjectsContentWrapper/ProjectsContentWrapper';
 import { RootState } from '@/redux/store';
 import { useSelector } from 'react-redux';
+
+const Pagination = dynamic(() => import('../Pagination/Pagination'), {
+  ssr: false,
+});
 
 const NovaProjectsContent: FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);

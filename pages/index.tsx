@@ -6,7 +6,7 @@ import IntroTextBlock from '@/components/ui/IntroTextBlock/IntroTextBlock';
 import IntroPageAvatar from '@/components/ui/IntroPageAvatar/IntroPageAvatar';
 import IntroButton from '@/components/ui/IntroButton/IntroButton';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import IntroContentCard from '@/components/ui/IntroContentCard/IntroContentCard';
 
 export default function HomePage() {

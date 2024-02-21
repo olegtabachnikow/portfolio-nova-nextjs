@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import type { ButtonItemLinkType } from '@/types/types';
 import { useDispatch } from 'react-redux';
 import { setIsStarted } from '@/redux/interface-slice';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { setCameraPosition } from '@/redux/nova-slice';
 import { setIsBurgerMenuOpen } from '@/redux/interface-slice';

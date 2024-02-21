@@ -116,7 +116,8 @@ const Header: FC = () => {
         {langButtonList.map((lang: ButtonItemLangType) => {
           return (
             <Link
-              href={`/${lang.lang}/${getCurrentPage()}`}
+              href={`/${getCurrentPage()}`}
+              locale={lang.lang}
               className={`${classes.lang_button} ${
                 lang.lang === i18n.language ? classes.active : ''
               }`}

@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import classes from './Skills.module.css';
 import { CardContentWrapper } from '../CardContentWrapper/CardContentWrapper';
 import { SkillListType } from '@/types/types';

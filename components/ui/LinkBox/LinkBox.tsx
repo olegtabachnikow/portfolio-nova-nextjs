@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classes from './LinkBox.module.css';
 import { SocialIcon } from 'react-custom-social-icons';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 const LinkBox: FC = () => {
   const { i18n } = useTranslation();
