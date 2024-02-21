@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import classes from './FormInput.module.css';
-import { div } from 'three/examples/jsm/nodes/Nodes.js';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   value: string;
@@ -19,6 +19,7 @@ const FormInput: FC<Props> = ({
   type,
   error,
 }) => {
+  const { i18n } = useTranslation();
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -35,6 +36,7 @@ const FormInput: FC<Props> = ({
             type='text'
             required
             name={name}
+            dir={i18n.language === 'iw' ? 'rtl' : 'ltr'}
           />
         ) : (
           <textarea
@@ -44,9 +46,16 @@ const FormInput: FC<Props> = ({
             onChange={handleChange}
             name={name}
             rows={8}
+            dir={i18n.language === 'iw' ? 'rtl' : 'ltr'}
           />
         )}
-        <label className={classes.label}>{label}</label>
+        <label
+          className={`${classes.label} ${
+            i18n.language === 'iw' && classes.reversed
+          }`}
+        >
+          {label}
+        </label>
         <p className={classes.error}>{error}</p>
       </div>
     </div>

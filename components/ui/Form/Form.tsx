@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { isDesktop } from 'react-device-detect';
 import FormInput from '../FormInput/FormInput';
 import { emailRegex } from '@/constants/constants';
+import { useTranslation } from 'react-i18next';
 
 interface FormDataType {
   name: { value: string; error: string };
@@ -21,28 +22,29 @@ const initialFormData: FormDataType = {
 };
 
 const Form: FC = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState<FormDataType>(initialFormData);
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     const { name, email, message } = formData;
     const errors = { name: '', email: '', message: '' };
     if (name.value.trim().length < 3) {
-      errors.name = 'Name must be at least 3 characters';
+      errors.name = t('form.errors.name_length');
     }
     if (!name.value.length) {
-      errors.name = 'Name is required';
+      errors.name = t('form.errors.name_required');
     }
     if (!email.value.match(emailRegex)) {
-      errors.email = 'Invalid email';
+      errors.email = t('form.errors.email_invalid');
     }
     if (!email.value.length) {
-      errors.email = 'Email is required';
+      errors.email = t('form.errors.email_required');
     }
     if (message.value.trim().length < 10) {
-      errors.message = 'Message must be at least 10 characters';
+      errors.message = t('form.errors.message_required');
     }
     if (!message.value.length) {
-      errors.message = 'Message is required';
+      errors.message = t('form.errors.mesage_length');
     }
     if (errors.name || errors.email || errors.message) {
       setFormData({
@@ -52,7 +54,12 @@ const Form: FC = () => {
       });
       return;
     }
-    // send data
+    const validatedData = {
+      name: name.value,
+      email: email.value,
+      message: message.value,
+    };
+    console.log(validatedData);
   };
 
   return (
@@ -65,7 +72,7 @@ const Form: FC = () => {
       >
         <FormInput
           name='name'
-          label='name'
+          label={t('form.labels.name')}
           type='text'
           onChange={(str: string) => {
             setFormData({ ...formData, name: { value: str, error: '' } });
@@ -75,7 +82,7 @@ const Form: FC = () => {
         />
         <FormInput
           name='email'
-          label='email'
+          label={t('form.labels.email')}
           type='text'
           onChange={(str: string) => {
             setFormData({ ...formData, email: { value: str, error: '' } });
@@ -85,7 +92,7 @@ const Form: FC = () => {
         />
         <FormInput
           name='message'
-          label='Your message'
+          label={t('form.labels.message')}
           type='textarea'
           onChange={(str: string) => {
             setFormData({ ...formData, message: { value: str, error: '' } });
@@ -100,7 +107,7 @@ const Form: FC = () => {
           className={classes.button}
           type='submit'
         >
-          Send
+          {t('form.submit')}
         </motion.button>
       </form>
     </CardContentWrapper>

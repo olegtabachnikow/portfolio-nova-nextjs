@@ -67,6 +67,20 @@
     "item7": "NextJS Blog הוא יישום בלוג פשוט שנבנה עם Next.js ו- TypeScript."
   },
   "form": {
-    "title": "שלח לי הודעה"
+    "title": "שלח לי הודעה",
+    "labels": {
+      "name": "שם",
+      "email": "אימייל",
+      "message": "הודעה"
+    },
+    "errors": {
+      "name_lenght": "השם חייב להכיל לפחות 3 תווים",
+      "name_required": "נדרש שם",
+      "email_required": "נדרש אימייל",
+      "email_invalid": "אימייל שגוי",
+      "message_required": "נדרשת הודעה",
+      "message_lenght": "ההודעה חייבת להיות באורך 10 תווים לפחות"
+    },
+    "submit": "לשלוח"
   }
 }

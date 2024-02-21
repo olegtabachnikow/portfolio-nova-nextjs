@@ -67,6 +67,20 @@
     "item7": "NextJS Blog is a simple blog application built with Next.js and TypeScript."
   },
   "form": {
-    "title": "Message me"
+    "title": "Message me",
+    "labels": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message"
+    },
+    "errors": {
+      "name_lenght": "Name must be at least 3 characters",
+      "name_required": "Name is required",
+      "email_required": "Email is required",
+      "email_invalid": "Invalid email",
+      "message_required": "Message is required",
+      "message_lenght": "Message must be at least 10 characters"
+    },
+    "submit": "Send"
   }
 }
