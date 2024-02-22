@@ -1,5 +1,3 @@
-'use client';
-
 import { FC } from 'react';
 import classes from './Pagination.module.css';
 import ResponsivePagination from 'react-responsive-pagination';

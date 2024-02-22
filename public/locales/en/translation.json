@@ -81,6 +81,9 @@
       "message_required": "Message is required",
       "message_lenght": "Message must be at least 10 characters"
     },
-    "submit": "Send"
+    "submit": "Send",
+    "sending": "Sending...",
+    "send_another": "Send another message",
+    "try_again": "Try again"
   }
 }

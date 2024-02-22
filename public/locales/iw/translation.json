@@ -81,6 +81,9 @@
       "message_required": "נדרשת הודעה",
       "message_lenght": "ההודעה חייבת להיות באורך 10 תווים לפחות"
     },
-    "submit": "לשלוח"
+    "submit": "לשלוח",
+    "sending": "שליחה",
+    "send_another": "שלח הודעה נוספת",
+    "try_again": "נסה שוב"
   }
 }

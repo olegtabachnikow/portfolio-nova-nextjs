@@ -32,9 +32,7 @@
   border-bottom: 3px solid rgb(138, 132, 255);
   padding: 30px 10px 10px 10px;
   box-sizing: border-box;
-  user-scalable: no;
   -webkit-user-scalable: no;
-  maximum-scale: 1;
   -webkit-text-size-adjust: none;
 }
 .textarea {
