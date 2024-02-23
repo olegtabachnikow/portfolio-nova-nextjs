@@ -39,6 +39,10 @@ const HeaderPageButton: FC<Props> = ({ page }) => {
         className={classes.link}
         href={process.env.NEXT_PUBLIC_CV as string}
         target='_blank'
+        style={{
+          flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
+          padding: '1px 6px',
+        }}
       >
         <Image src='/images/cv.svg' width={25} height={25} alt='cv' />
         <span
