@@ -24,6 +24,10 @@ const HeaderPageButton: FC<Props> = ({ page }) => {
     if (currentQuery === link) {
       return;
     }
+    if (link === '/cv') {
+      window.open(process.env.NEXT_PUBLIC_CV as string, '_blank');
+      return;
+    }
     dispatch(setIsBurgerMenuOpen(false));
     dispatch(setIsStarted(false));
     dispatch(setCameraPosition({ x: 0, y: 0, z: 0 }));
@@ -32,29 +36,6 @@ const HeaderPageButton: FC<Props> = ({ page }) => {
     }, 700);
     return () => clearTimeout(timeout);
   };
-
-  if (page.link === '/cv') {
-    return (
-      <Link
-        className={classes.link}
-        href={process.env.NEXT_PUBLIC_CV as string}
-        target='_blank'
-        style={{
-          flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
-          padding: '1px 6px',
-        }}
-      >
-        <Image src='/images/cv.svg' width={25} height={25} alt='cv' />
-        <span
-          style={{
-            margin: i18n.language === 'iw' ? '0 10px 0 0' : '0 0 0 10px',
-          }}
-        >
-          {t(page.page)}
-        </span>
-      </Link>
-    );
-  }
 
   return (
     <button
