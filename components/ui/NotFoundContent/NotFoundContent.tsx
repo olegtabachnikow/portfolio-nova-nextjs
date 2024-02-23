@@ -1,14 +1,13 @@
 import { FC } from 'react';
 import classes from './NotFoundContent.module.css';
 import Link from 'next/link';
-import additionalClasses from '../HomeScreen/HomeScreen.module.css';
 import { useTranslation } from 'next-i18next';
 
 const NotFoundContent: FC = () => {
   const { t, i18n } = useTranslation();
   return (
     <div className={classes.container}>
-      <div className={additionalClasses.space} />
+      <div className='space' />
       <div className={classes.wrapper}>
         <div className={classes.glitch} data-text='404 '>
           404

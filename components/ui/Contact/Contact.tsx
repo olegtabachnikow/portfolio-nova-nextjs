@@ -90,7 +90,7 @@ export const Contact: FC = () => {
         whileTap={{ scale: 0.8 }}
         className={classes.button}
         id={isTabletOrMobile ? classes.mobile : undefined}
-        href={process.env.NEXT_CV}
+        href={process.env.NEXT_PUBLIC_CV}
         download
       >
         {t('contact.button')}

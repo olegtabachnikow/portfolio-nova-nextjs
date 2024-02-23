@@ -14,7 +14,7 @@ import Slider from '../Slider/Slider';
 
 const Header: FC = () => {
   const [isSliderShown, setIsSliderShown] = useState(false);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const router = useRouter();
   const currentQuery = router.route;
   const dispatch = useDispatch();
@@ -39,6 +39,9 @@ const Header: FC = () => {
     }
     if (currentQuery.includes('contact')) {
       return 'contact';
+    }
+    if (currentQuery.includes('playground')) {
+      return 'playground';
     }
   };
 
@@ -77,9 +80,8 @@ const Header: FC = () => {
                 />
               </button>
             );
-          } else {
-            return <HeaderPageButton page={page} key={page.page} />;
           }
+          return <HeaderPageButton page={page} key={page.page} />;
         })}
       </div>
       <div

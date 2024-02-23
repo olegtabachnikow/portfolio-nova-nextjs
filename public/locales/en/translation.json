@@ -4,7 +4,9 @@
     "intro": "Intro",
     "about": "About",
     "projects": "My Work",
-    "contact": "Contacts"
+    "contact": "Contacts",
+    "playground": "Nova",
+    "cv": "Download CV"
   },
   "languages": { "en": "English", "ru": "Русский", "iw": "עברית" },
   "welcome1": "Hi, I am Oleg",

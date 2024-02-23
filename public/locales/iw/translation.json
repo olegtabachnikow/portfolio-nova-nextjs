@@ -4,7 +4,9 @@
     "intro": "הקדמה",
     "about": "עליי",
     "projects": "עבודתי",
-    "contact": "אנשי קשר"
+    "contact": "אנשי קשר",
+    "playground": "נובה",
+    "cv": "הורד קורות חיים"
   },
   "languages": { "en": "English", "ru": "Русский", "iw": "עברית" },
   "welcome1": "שלום, אני אולג",

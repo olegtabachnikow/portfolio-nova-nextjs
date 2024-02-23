@@ -4,7 +4,9 @@
     "intro": "В начало",
     "about": "Обо мне",
     "projects": "Моя работа",
-    "contact": "Контакты"
+    "contact": "Контакты",
+    "playground": "Нова",
+    "cv": "Скачать резюме"
   },
   "languages": { "en": "English", "ru": "Русский", "iw": "עברית" },
   "welcome1": "Привет, я Олег",

@@ -30,6 +30,18 @@ export const pageLinkList: ButtonItemLinkType[] = [
     alt: 'contact icon',
     link: '/contact',
   },
+  {
+    page: 'menu.playground',
+    image: 'gamepad.svg',
+    alt: 'playground icon',
+    link: '/playground',
+  },
+  {
+    page: 'menu.cv',
+    image: 'cv.svg',
+    alt: 'cv icon',
+    link: '/cv',
+  },
 ];
 
 export const langButtonList: ButtonItemLangType[] = [

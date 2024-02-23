@@ -62,6 +62,9 @@ const Navigation: FC = () => {
     if (currentQuery.includes('contact')) {
       return 'contact';
     }
+    if (currentQuery.includes('playground')) {
+      return 'playground';
+    }
     return '';
   };
 

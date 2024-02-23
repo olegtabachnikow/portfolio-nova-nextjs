@@ -75,13 +75,13 @@ const Form: FC = () => {
         throw new Error(`response status: ${response.status}`);
       }
 
+      setIsSending(false);
       setIsSent(true);
       setIsError(false);
-      setIsSending(false);
     } catch (err) {
+      setIsSending(false);
       setIsSent(true);
       setIsError(true);
-      setIsSending(false);
     }
   };
 
@@ -110,7 +110,11 @@ const Form: FC = () => {
               whileTap={{ scale: 0.95 }}
               className={classes.button + ' ' + classes.button_sent}
               onClick={() => {
-                setFormData(isError ? formData : initialFormData);
+                setFormData(
+                  !isError
+                    ? { ...formData, message: { value: '', error: '' } }
+                    : initialFormData
+                );
                 setIsError(false);
                 setIsSent(false);
               }}
