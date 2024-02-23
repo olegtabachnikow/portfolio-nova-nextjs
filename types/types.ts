@@ -7,7 +7,7 @@ export type ButtonItemLinkType = {
   link: string;
 };
 
-export type CardPageType = 'About' | 'Contact' | 'Experience';
+export type CardPageType = 'About' | 'Skills' | 'Experience';
 
 export interface ProjectType {
   title: string;
@@ -26,4 +26,9 @@ export interface CertificateType {
   author: string;
   length: number;
   company: string;
+}
+
+export interface SkillListType {
+  image: string;
+  title: string;
 }

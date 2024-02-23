@@ -4,12 +4,12 @@ import { CardHeader } from '../CardHeader/CardHeader';
 import { CardFooter } from '../CardFooter/CardFooter';
 import { About } from '../About/About';
 import { Experience } from '../Experience/Experience';
-import { Contact } from '../Contact/Contact';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 import CardHeaderAboutContent from '../CardHeaderAboutContent/CardHeaderAboutContent';
+import Skills from '../Skills/Skills';
 
 export const Card: FC = () => {
   const cardPage = useSelector((state: RootState) => state.interface.cardPage);
@@ -21,7 +21,7 @@ export const Card: FC = () => {
   const { i18n } = useTranslation();
   useEffect(() => {
     cardPage === 'About' ? setIsMoved(false) : setIsMoved(true);
-    cardPage === 'Contact'
+    cardPage === 'Skills'
       ? setIsContactSection(true)
       : setIsContactSection(false);
   }, [cardPage]);
@@ -58,8 +58,8 @@ export const Card: FC = () => {
           <div className={classes.content}>
             {cardPage === 'About' ? (
               <About />
-            ) : cardPage === 'Contact' ? (
-              <Contact />
+            ) : cardPage === 'Skills' ? (
+              <Skills />
             ) : (
               <Experience />
             )}

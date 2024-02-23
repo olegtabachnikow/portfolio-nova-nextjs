@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setIsCameraMoving, setCameraPosition } from '@/redux/nova-slice';
 import { Card } from '@/components/ui/Card/Card';
 import { RootState } from '@/redux/store';
-import RotationBox from '../RotationBox/RotationBox';
 
 const NovaContent: FC = () => {
   const cardPage = useSelector((state: RootState) => state.interface.cardPage);
@@ -32,7 +31,7 @@ const NovaContent: FC = () => {
       case 'Experience':
         handleSecondMove();
         break;
-      case 'Contact':
+      case 'Skills':
         handleThirdMove();
         break;
       default:
@@ -43,9 +42,7 @@ const NovaContent: FC = () => {
   return (
     <div className={classes.container}>
       <Nova isAboutPage={true} />
-      <RotationBox>
-        <Card />
-      </RotationBox>
+      <Card />
     </div>
   );
 };

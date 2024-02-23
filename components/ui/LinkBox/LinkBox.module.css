@@ -1,0 +1,10 @@
+.iconbox {
+  display: flex;
+}
+.icon {
+  margin-right: 10px;
+  transition: all 0.2s linear;
+}
+.icon:hover {
+  transform: scale(1.1);
+}

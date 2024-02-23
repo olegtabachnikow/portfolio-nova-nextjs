@@ -3,7 +3,10 @@
   "menu": {
     "intro": "הקדמה",
     "about": "עליי",
-    "projects": "עבודתי"
+    "projects": "עבודתי",
+    "contact": "אנשי קשר",
+    "playground": "נובה",
+    "cv": "הורד קורות חיים"
   },
   "languages": { "en": "English", "ru": "Русский", "iw": "עברית" },
   "welcome1": "שלום, אני אולג",
@@ -43,10 +46,13 @@
     "button": "הורדת קורות חיים",
     "address": "שדרות ששת הימים 30, תל אביב יפו"
   },
+  "skills": {
+    "title": "כישורים"
+  },
   "footer": {
     "about": "על אודות",
     "experience": "ניסיון עבודה",
-    "contact": "איש קשר"
+    "skills": "כישורים"
   },
   "projects": {
     "nav": {
@@ -61,5 +67,25 @@
     "item5": "יישום דף תחתון וידידותי למשתמש (SPA) ותגובה עבור אינטגרציה חלקה ב-Telegram Web App Bot.",
     "item6": "Favorite places, האפליקציה שלך לגילוי מקומות חדשים, לתיעוד זיכרונות בוהקים ולניהול בקלות את המיקומים המועדפים עליך.",
     "item7": "NextJS Blog הוא יישום בלוג פשוט שנבנה עם Next.js ו- TypeScript."
+  },
+  "form": {
+    "title": "שלח לי הודעה",
+    "labels": {
+      "name": "שם",
+      "email": "אימייל",
+      "message": "הודעה"
+    },
+    "errors": {
+      "name_lenght": "השם חייב להכיל לפחות 3 תווים",
+      "name_required": "נדרש שם",
+      "email_required": "נדרש אימייל",
+      "email_invalid": "אימייל שגוי",
+      "message_required": "נדרשת הודעה",
+      "message_lenght": "ההודעה חייבת להיות באורך 10 תווים לפחות"
+    },
+    "submit": "לשלוח",
+    "sending": "שליחה",
+    "send_another": "שלח הודעה נוספת",
+    "try_again": "נסה שוב"
   }
 }

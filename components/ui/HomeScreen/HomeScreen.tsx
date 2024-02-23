@@ -12,7 +12,7 @@ const HomeScreen: FC<Props> = ({ children }) => {
   const opacity = useSelector((state: RootState) => state.interface.opacity);
   return (
     <main className={classes.main}>
-      <div className={classes.space} style={{ opacity: opacity }} />
+      <div className='space' style={{ opacity: opacity }} />
       {children}
     </main>
   );

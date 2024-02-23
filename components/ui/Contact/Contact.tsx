@@ -5,6 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
+import LinkBox from '../LinkBox/LinkBox';
 
 export const Contact: FC = () => {
   const { t, i18n } = useTranslation();
@@ -12,7 +13,9 @@ export const Contact: FC = () => {
 
   return (
     <CardContentWrapper>
-      <span className={classes.title}> {t('contact.title')}</span>
+      <div className={classes.linkbox}>
+        <LinkBox />
+      </div>
       <motion.a
         whileTap={{ scale: 0.8 }}
         whileHover={{ opacity: 1 }}
@@ -87,7 +90,7 @@ export const Contact: FC = () => {
         whileTap={{ scale: 0.8 }}
         className={classes.button}
         id={isTabletOrMobile ? classes.mobile : undefined}
-        href={process.env.NEXT_CV}
+        href={process.env.NEXT_PUBLIC_CV}
         download
       >
         {t('contact.button')}

@@ -21,8 +21,8 @@ export const Button: FC<Props> = ({ text }) => {
     if (str === 'Experience') {
       return t('footer.experience');
     }
-    if (str === 'Contact') {
-      return t('footer.contact');
+    if (str === 'Skills') {
+      return t('footer.skills');
     }
   }
   const isActive = cardPage === text;

@@ -3,7 +3,7 @@ import classes from './Project.module.css';
 import Image from 'next/image';
 import { SocialIcon } from 'react-custom-social-icons';
 import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import type { ProjectType } from '@/types/types';
 
 interface Props {

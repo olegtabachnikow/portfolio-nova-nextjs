@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import type { ButtonItemLinkType } from '@/types/types';
 import { useDispatch } from 'react-redux';
 import { setIsStarted } from '@/redux/interface-slice';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { setCameraPosition } from '@/redux/nova-slice';
 import { setIsBurgerMenuOpen } from '@/redux/interface-slice';
@@ -22,15 +22,18 @@ const HeaderPageButton: FC<Props> = ({ page }) => {
   const handleClick = (link: string) => {
     if (currentQuery === link) {
       return;
-    } else {
-      dispatch(setIsBurgerMenuOpen(false));
-      dispatch(setIsStarted(false));
-      dispatch(setCameraPosition({ x: 0, y: 0, z: 0 }));
-      const timeout = setTimeout(() => {
-        router.push(`/${i18n.language}${page.link}`);
-      }, 700);
-      return () => clearTimeout(timeout);
     }
+    if (link === '/cv') {
+      window.open(process.env.NEXT_PUBLIC_CV, '_blank');
+      return;
+    }
+    dispatch(setIsBurgerMenuOpen(false));
+    dispatch(setIsStarted(false));
+    dispatch(setCameraPosition({ x: 0, y: 0, z: 0 }));
+    const timeout = setTimeout(() => {
+      router.push(`/${i18n.language}${page.link}`);
+    }, 700);
+    return () => clearTimeout(timeout);
   };
 
   return (

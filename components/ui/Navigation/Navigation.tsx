@@ -59,6 +59,12 @@ const Navigation: FC = () => {
     if (currentQuery.includes('projects')) {
       return 'projects';
     }
+    if (currentQuery.includes('contact')) {
+      return 'contact';
+    }
+    if (currentQuery.includes('playground')) {
+      return 'playground';
+    }
     return '';
   };
 
@@ -110,7 +116,8 @@ const Navigation: FC = () => {
           <Link
             onClick={handleClose}
             className={classes.link}
-            href={`/${item.lang}/${getCurrentPage()}`}
+            href={`/${getCurrentPage()}`}
+            locale={item.lang}
             style={{
               flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
             }}
