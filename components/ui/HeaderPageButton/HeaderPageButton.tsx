@@ -8,7 +8,6 @@ import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { setCameraPosition } from '@/redux/nova-slice';
 import { setIsBurgerMenuOpen } from '@/redux/interface-slice';
-import Link from 'next/link';
 
 interface Props {
   page: ButtonItemLinkType;
@@ -35,7 +34,7 @@ const HeaderPageButton: FC<Props> = ({ page }) => {
 
   if (page.link === '/cv') {
     return (
-      <Link
+      <a
         className={classes.link}
         href={process.env.NEXT_PUBLIC_CV as string}
         target='_blank'
@@ -48,7 +47,7 @@ const HeaderPageButton: FC<Props> = ({ page }) => {
         >
           {t(page.page)}
         </span>
-      </Link>
+      </a>
     );
   }
 

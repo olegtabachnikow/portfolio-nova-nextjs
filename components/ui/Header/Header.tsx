@@ -14,7 +14,7 @@ import Slider from '../Slider/Slider';
 
 const Header: FC = () => {
   const [isSliderShown, setIsSliderShown] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const router = useRouter();
   const currentQuery = router.route;
   const dispatch = useDispatch();
