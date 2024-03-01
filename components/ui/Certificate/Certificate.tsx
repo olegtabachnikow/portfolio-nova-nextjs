@@ -23,7 +23,9 @@ const Certificate: FC<Props> = ({ certificate }) => {
       </PhotoView>
       <div className={classes.info}>
         <span className={classes.title}>{title}</span>
-        <span className={classes.author}>{author + ', ' + company}</span>
+        <span className={classes.author}>
+          {author === 'Adukar' ? company : author + ', ' + company}
+        </span>
         <span className={classes.length}>{`${length}h`}</span>
       </div>
     </div>

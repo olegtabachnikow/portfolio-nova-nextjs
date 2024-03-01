@@ -43,6 +43,7 @@ const Header: FC = () => {
     if (currentQuery.includes('playground')) {
       return 'playground';
     }
+    return '';
   };
 
   const handleNavigateToMain = () => {

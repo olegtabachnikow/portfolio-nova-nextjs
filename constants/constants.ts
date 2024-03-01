@@ -138,6 +138,13 @@ export const certificateData: CertificateType[] = [
     length: 740,
   },
   {
+    image: '/images/certificates/aducar.jpeg',
+    title: 'Web Development',
+    company: 'Adukar',
+    author: 'Adukar',
+    length: 520,
+  },
+  {
     image: '/images/certificates/nextJS.jpeg',
     title: 'Next.js & React',
     company: 'Udemy',

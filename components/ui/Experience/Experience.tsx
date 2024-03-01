@@ -30,6 +30,11 @@ export const Experience: FC = () => {
           title={t('experience.item4.company')}
           text={t('experience.item4.text')}
         />
+        <ExperienceItem
+          year={'2019'}
+          title={t('experience.item5.company')}
+          text={t('experience.item5.text')}
+        />
       </div>
     </CardContentWrapper>
   );

@@ -9,6 +9,7 @@ import FormInput from '../FormInput/FormInput';
 import { emailRegex } from '@/constants/constants';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
+import Loader from '../Loader/Loader';
 
 interface FormDataType {
   name: { value: string; error: string };
@@ -91,7 +92,9 @@ const Form: FC = () => {
         {isSending && (
           <>
             <div className={classes.overlay} />
-            <div className={classes.loader} />
+            <div className={classes.loader}>
+              <Loader />
+            </div>
             <span className={classes.loader_text}>{t('form.sending')}</span>
           </>
         )}

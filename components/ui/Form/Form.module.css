@@ -51,24 +51,15 @@
   width: 105%;
   height: 105%;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(1px);
   border-radius: 12px;
 }
 .loader {
-  width: 30px;
   position: absolute;
-  top: 35%;
-  padding: 8px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: #f8fbfa;
-  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
-  -webkit-mask: var(--_m);
-  mask: var(--_m);
-  -webkit-mask-composite: source-out;
-  mask-composite: subtract;
-  animation: l3 1s infinite linear;
+  top: -10%;
+  pointer-events: none;
+  display: flex;
   z-index: 3;
 }
 @keyframes l3 {

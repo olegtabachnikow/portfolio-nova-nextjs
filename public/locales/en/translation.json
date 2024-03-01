@@ -25,7 +25,7 @@
   "experience": {
     "title": "work experience",
     "item1": {
-      "company": "Frontend Web Deveolper as Srisa",
+      "company": "Frontend Web Deveolper at Srisa",
       "text": "Leveraged Next.js for server-side rendering and efficient client-side routing, providing a performant and SEO-friendly web application. Implemented Redux Thunk to manage asynchronous actions, state management, and data flow, enabling smooth user interactions and data handling."
     },
     "item2": {
@@ -38,7 +38,11 @@
     },
     "item4": {
       "company": "Frontend Web Developer at Ava Mind",
-      "text": "Developed a responsive and user-friendly Single Page Application (SPA). Assumed a leadership role in strategizing project roadmap, effectively coordinating with key stakeholders to maintain alignment throughout the development process."
+      "text": "Developed a responsive and user-friendly Single Page Application (SPA)."
+    },
+    "item5": {
+      "company": "Frontend Web Developer as Freelancer",
+      "text": "Created landing pages and one-page applications for an advertising agency."
     }
   },
   "contact": {
