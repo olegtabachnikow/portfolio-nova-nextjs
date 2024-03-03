@@ -45,8 +45,10 @@ const Skills: FC = () => {
             alt={skill.title}
           />
         ))}
+        <span className={classes.skill_title}>
+          {currentSelectedSkill.title}
+        </span>
       </div>
-      <span className={classes.skill_title}>{currentSelectedSkill.title}</span>
       <div
         className={classes.buttons}
         style={{

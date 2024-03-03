@@ -7,8 +7,8 @@ import { setIsStarted } from '@/redux/interface-slice';
 import { RootState } from '@/redux/store';
 
 const variants = {
-  active: { scaleX: 1, scaleY: 1, scaleZ: 1 },
-  pending: { scaleX: 0, scaleY: 0, scaleZ: 0 },
+  active: { scaleX: 1, scaleY: 1, scaleZ: 1, opacity: 1 },
+  pending: { scaleX: 0, scaleY: 0, scaleZ: 0, opacity: 0 },
 };
 
 const sizes: number[] = [];
@@ -122,7 +122,7 @@ export const Stars: FC = () => {
   return (
     <motion.points
       ref={stars}
-      initial={{ scale: isStarted ? 1 : 0 }}
+      initial={{ scale: isStarted ? 1 : 0, opacity: isStarted ? 1 : 0 }}
       animate={isStarted ? variants.active : variants.pending}
       transition={{ duration: 0.7, ease: 'anticipate' }}
     >
