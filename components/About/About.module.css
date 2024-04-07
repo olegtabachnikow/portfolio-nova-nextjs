@@ -1,0 +1,12 @@
+.text {
+  font-family: var(--font-jost);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 10px 0;
+}
+.title {
+  font-family: var(--font-jost);
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+}

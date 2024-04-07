@@ -1,0 +1,21 @@
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: var(--font-jost);
+  color: #fff;
+  opacity: 0.3;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.link.active {
+  opacity: 1;
+}
+.link {
+  transition: all 0.3s ease;
+}
+.link:hover {
+  opacity: 1;
+}

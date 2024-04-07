@@ -1,0 +1,54 @@
+.container {
+  position: relative;
+  padding-bottom: 20px;
+}
+.container_inner {
+  font-family: var(--font-jost);
+  text-transform: uppercase;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.label {
+  color: var(--primary);
+  position: absolute;
+  transition: all 0.3s linear;
+  top: 7px;
+  left: 7px;
+  display: block;
+  opacity: 0.4;
+  scale: 0.9;
+}
+.reversed {
+  left: auto;
+  right: 7px;
+}
+.input,
+.textarea {
+  outline: none;
+  border: none;
+  color: #fff;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-bottom: 3px solid var(--primary);
+  padding: 30px 10px 10px 10px;
+  box-sizing: border-box;
+  -webkit-user-scalable: no;
+  -webkit-text-size-adjust: none;
+}
+.textarea {
+  resize: none;
+}
+.input:is(:focus, :active) + .label,
+.textarea:is(:focus, :active) + .label {
+  opacity: 1;
+  scale: 1;
+}
+.error {
+  position: absolute;
+  color: red;
+  font-size: 11px;
+  width: 100%;
+  text-align: center;
+  bottom: 5px;
+  margin: 0;
+}

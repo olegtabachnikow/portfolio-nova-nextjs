@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import NotFoundContent from '@/components/ui/NotFoundContent/NotFoundContent';
+import NotFoundContent from '@/components/NotFoundContent/NotFoundContent';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 

@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import 'react-photo-view/dist/react-photo-view.css';
-import NovaContactContent from '@/components/ui/NovaContactContent/NovaContactContent';
+import ContactContent from '@/components/ContactContent/ContactContent';
 
 const ProjectPage: FC = () => {
-  return <NovaContactContent />;
+  return <ContactContent />;
 };
 
 export default ProjectPage;

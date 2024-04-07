@@ -1,0 +1,27 @@
+.container {
+  color: #fff;
+  font-family: var(--font-jost);
+  scroll-snap-align: start;
+}
+.image {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.info {
+  display: flex;
+  height: calc(100% - 215px);
+  padding-inline: 15px;
+  flex-direction: column;
+  justify-content: center;
+}
+.title {
+  font-size: 30px;
+}
+.author {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.length {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}

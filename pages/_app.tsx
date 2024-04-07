@@ -6,16 +6,22 @@ import { store } from '@/redux/store';
 import '../node_modules/normalize.css';
 import Head from 'next/head';
 import { useMediaQuery } from 'react-responsive';
-import Notification from '@/components/ui/Notification/Notification';
+import Notification from '@/components/Notification/Notification';
 import { Suspense } from 'react';
-import Loader from '@/components/ui/Loader/Loader';
-import BurgerMenu from '@/components/ui/BurgerMenu/BurgerMenu';
-import Header from '@/components/ui/Header/Header';
+import Loader from '@/components/Loader/Loader';
+import BurgerMenu from '@/components/BurgerMenu/BurgerMenu';
+import Header from '@/components/Header/Header';
 import { isMobile } from 'react-device-detect';
+import MainScreen from '@/components/MainScreen/MainScreen';
+import CardContainer from '@/components/CardContainer/CardContainer';
+import { useRouter } from 'next/router';
+import IntroContent from '@/components/IntroContent/IntroContent';
 
 function App({ Component, pageProps }: AppProps) {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1010px)' });
   const isLandscape = useMediaQuery({ query: '(orientation: landscape)' });
+  const router = useRouter();
+
   return (
     <Provider store={store}>
       <Head>
@@ -28,7 +34,16 @@ function App({ Component, pageProps }: AppProps) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Suspense fallback={<Loader />}>
-        <Component {...pageProps} />
+        <MainScreen>
+          {router.route === '/' && <IntroContent />}
+          {router.route === '/playground' ? (
+            <Component {...pageProps} />
+          ) : (
+            <CardContainer>
+              <Component {...pageProps} />
+            </CardContainer>
+          )}
+        </MainScreen>
       </Suspense>
       {isMobile || isTabletOrMobile ? <BurgerMenu /> : <Header />}
       {isMobile && isLandscape ? <Notification /> : null}

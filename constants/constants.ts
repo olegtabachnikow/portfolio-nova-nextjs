@@ -8,32 +8,22 @@ import { ProjectType, SkillListType } from '@/types/types';
 export const pageLinkList: ButtonItemLinkType[] = [
   {
     page: 'menu.intro',
-    image: 'start.svg',
-    alt: 'intro icon',
     link: '/',
   },
   {
     page: 'menu.about',
-    image: 'user.svg',
-    alt: 'about icon',
-    link: '/nova',
+    link: '/',
   },
   {
     page: 'menu.projects',
-    image: 'projects.svg',
-    alt: 'project icon',
     link: '/projects',
   },
   {
     page: 'menu.contact',
-    image: 'message.svg',
-    alt: 'contact icon',
     link: '/contact',
   },
   {
     page: 'menu.playground',
-    image: 'gamepad.svg',
-    alt: 'playground icon',
     link: '/playground',
   },
   {
@@ -64,7 +54,7 @@ export const langButtonList: ButtonItemLangType[] = [
 
 export const projectData: ProjectType[] = [
   {
-    image: '/images/react-icons.png',
+    image: '/images/projects/react-icons.png',
     title: 'React Social Icons',
     description: 'projects.item1',
     link: 'https://www.npmjs.com/package/react-custom-social-icons',
@@ -73,7 +63,7 @@ export const projectData: ProjectType[] = [
     withPreview: true,
   },
   {
-    image: '/images/codebook.png',
+    image: '/images/projects/codebook.png',
     title: 'React Codebook',
     description: 'projects.item2',
     link: 'https://www.npmjs.com/package/react-codebook',
@@ -82,7 +72,7 @@ export const projectData: ProjectType[] = [
     withPreview: true,
   },
   {
-    image: '/images/lol.png',
+    image: '/images/projects/lol.png',
     title: 'League of Legends DB',
     description: 'projects.item3',
     link: 'https://lol-db-tau.vercel.app/',
@@ -91,7 +81,7 @@ export const projectData: ProjectType[] = [
     withPreview: true,
   },
   {
-    image: '/images/guess.png',
+    image: '/images/projects/guess.png',
     title: 'Guess Number Game',
     description: 'projects.item4',
     link: 'https://github.com/olegtabachnikow/guess-number-native-app',
@@ -100,7 +90,7 @@ export const projectData: ProjectType[] = [
     withPreview: false,
   },
   {
-    image: '/images/get_robo.png',
+    image: '/images/projects/get_robo.png',
     title: 'Get Robo Vpn',
     description: 'projects.item5',
     link: 'https://t.me/getrobovpnBot',
@@ -110,7 +100,7 @@ export const projectData: ProjectType[] = [
     withPreview: false,
   },
   {
-    image: '/images/places.png',
+    image: '/images/projects/places.png',
     title: 'Favorite Places App',
     description: 'projects.item6',
     link: 'https://github.com/olegtabachnikow/favorite-places-native-app',
@@ -119,7 +109,7 @@ export const projectData: ProjectType[] = [
     withPreview: false,
   },
   {
-    image: '/images/blog.png',
+    image: '/images/projects/blog.png',
     title: 'NextJS Blog',
     description: 'projects.item7',
     link: 'https://nextjs-blog-dun-nine-14.vercel.app/',

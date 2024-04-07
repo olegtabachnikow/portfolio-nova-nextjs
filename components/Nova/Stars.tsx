@@ -1,15 +1,6 @@
-import { useRef, FC, useEffect } from 'react';
+import { useRef, FC } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
-import { motion } from 'framer-motion-3d';
-import { useDispatch, useSelector } from 'react-redux';
-import { setIsStarted } from '@/redux/interface-slice';
-import { RootState } from '@/redux/store';
-
-const variants = {
-  active: { scaleX: 1, scaleY: 1, scaleZ: 1, opacity: 1 },
-  pending: { scaleX: 0, scaleY: 0, scaleZ: 0, opacity: 0 },
-};
 
 const sizes: number[] = [];
 const shift: number[] = [];
@@ -60,14 +51,6 @@ const elapsedTime = {
 
 export const Stars: FC = () => {
   const stars = useRef<any>();
-  const dispatch = useDispatch();
-  const isStarted = useSelector(
-    (state: RootState) => state.interface.isStarted
-  );
-
-  useEffect(() => {
-    dispatch(setIsStarted(true));
-  }, []);
 
   const onBeforeCompile = (shader: any) => {
     shader.uniforms.time = elapsedTime.time;
@@ -84,8 +67,7 @@ export const Stars: FC = () => {
         `#include <color_vertex>
         float d = length(abs(position) / vec3(40., 10., 40));
         d = clamp(d, 0., 1.);
-        vColor = mix(vec3(227., 155., 0.), vec3(100., 50., 255.), d) / 255.;
-      `
+        vColor = mix(vec3(138., 170., 229.), vec3(0., 0., 0.), d) / 255.;`
       )
       .replace(
         `#include <begin_vertex>`,
@@ -120,12 +102,7 @@ export const Stars: FC = () => {
   });
 
   return (
-    <motion.points
-      ref={stars}
-      initial={{ scale: isStarted ? 1 : 0, opacity: isStarted ? 1 : 0 }}
-      animate={isStarted ? variants.active : variants.pending}
-      transition={{ duration: 0.7, ease: 'anticipate' }}
-    >
+    <points ref={stars}>
       <bufferGeometry attach='geometry' {...geometry} />
       <pointsMaterial
         size={0.155}
@@ -134,6 +111,6 @@ export const Stars: FC = () => {
         blending={THREE.AdditiveBlending}
         onBeforeCompile={onBeforeCompile}
       />
-    </motion.points>
+    </points>
   );
 };

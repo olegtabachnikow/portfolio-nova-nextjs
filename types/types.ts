@@ -2,8 +2,8 @@ export type ButtonItemLangType = { lang: string; image: string; alt: string };
 
 export type ButtonItemLinkType = {
   page: string;
-  image: string;
-  alt: string;
+  image?: string;
+  alt?: string;
   link: string;
 };
 

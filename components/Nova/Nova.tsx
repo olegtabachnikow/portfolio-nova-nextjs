@@ -9,11 +9,10 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
 interface Props {
-  isAboutPage?: boolean;
   isPlaygroundPage?: boolean;
 }
 
-export const Nova: FC<Props> = ({ isAboutPage, isPlaygroundPage }) => {
+export const Nova: FC<Props> = ({ isPlaygroundPage }) => {
   const cameraPosition = useSelector((state: RootState) => state.nova.position);
   const opacity = useSelector((state: RootState) => state.interface.opacity);
   const cameraSettings: any = {
@@ -37,7 +36,7 @@ export const Nova: FC<Props> = ({ isAboutPage, isPlaygroundPage }) => {
         {isPlaygroundPage ? (
           <OrbitControls maxDistance={70} />
         ) : (
-          <OrbitControlsHelper isAboutPage={isAboutPage} />
+          <OrbitControlsHelper />
         )}
       </Canvas>
     </div>

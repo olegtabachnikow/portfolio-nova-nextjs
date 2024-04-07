@@ -6,11 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { setIsCameraMoving } from '@/redux/nova-slice';
 
-interface Props {
-  isAboutPage?: boolean;
-}
-
-export const OrbitControlsHelper: FC<Props> = ({ isAboutPage }) => {
+export const OrbitControlsHelper: FC = () => {
   const position = useSelector((state: RootState) => state.nova.position);
   const isMoving = useSelector((state: RootState) => state.nova.isMoving);
   const dispatch = useDispatch();
@@ -57,12 +53,13 @@ export const OrbitControlsHelper: FC<Props> = ({ isAboutPage }) => {
   });
   return (
     <OrbitControls
-      autoRotate={isAboutPage ? false : true}
+      autoRotate={true}
       ref={controlsRef}
-      enabled={isAboutPage ? isMoving : true}
+      enabled={true}
       enableZoom={false}
       enableRotate={false}
-      autoRotateSpeed={isAboutPage ? 0 : 0.2}
+      enablePan={false}
+      autoRotateSpeed={0.2}
     />
   );
 };

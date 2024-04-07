@@ -1,0 +1,30 @@
+.overlay {
+  background: linear-gradient(
+      217deg,
+      rgba(138, 170, 229, 0.8),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(
+      127deg,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70.71%
+    ),
+    linear-gradient(336deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 70.71%);
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  filter: blur(30px);
+  background-size: 110% 180px;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+.header {
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}

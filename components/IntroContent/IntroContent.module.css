@@ -1,0 +1,33 @@
+.container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 340px;
+}
+.title {
+  position: absolute;
+  top: 110px;
+  font-family: var(--font-jost);
+  color: white;
+  font-weight: 400;
+}
+.subtitle {
+  position: absolute;
+  top: 160px;
+  font-family: var(--font-jost);
+  text-transform: uppercase;
+  font-size: 14px;
+  opacity: 0.8;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+.intro_overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: #0b111a;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  pointer-events: all;
+  position: absolute;
+}
