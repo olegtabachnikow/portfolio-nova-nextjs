@@ -100,38 +100,28 @@ const Navigation: FC = () => {
           <Slider />
         </div>
       </motion.li>
-      {langButtonList.map((item: ButtonItemLangType) => (
-        <motion.li
-          className={`${classes.item} ${
-            item.lang === i18n.language ? classes.active : ''
-          }`}
-          key={item.lang}
-          variants={itemVariants}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          style={{
-            alignItems: i18n.language === 'iw' ? 'flex-end' : 'flex-start',
-          }}
-        >
-          <Link
-            onClick={handleClose}
-            className={classes.link}
-            href={`/${getCurrentPage()}`}
-            locale={item.lang}
-            style={{
-              flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
-            }}
-          >
-            <Image
-              src={`/images/${item.image}`}
-              width={30}
-              height={30}
-              alt={item.alt}
-            />
-            <span className={classes.text}>{t(`languages.${item.lang}`)}</span>
-          </Link>
-        </motion.li>
-      ))}
+      <motion.li
+        className={classes.language_box}
+        variants={itemVariants}
+        key='language-box'
+        style={{
+          flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
+        }}
+      >
+        {langButtonList.map((item: ButtonItemLangType) =>
+          i18n.language === item.lang ? null : (
+            <Link
+              key={item.lang}
+              onClick={handleClose}
+              className={classes.link}
+              href={`/${getCurrentPage()}`}
+              locale={item.lang}
+            >
+              <span className={classes.text}>{item.name}</span>
+            </Link>
+          )
+        )}
+      </motion.li>
     </motion.ul>
   );
 };

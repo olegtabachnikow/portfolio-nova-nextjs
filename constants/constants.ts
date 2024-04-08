@@ -37,18 +37,15 @@ export const pageLinkList: ButtonItemLinkType[] = [
 export const langButtonList: ButtonItemLangType[] = [
   {
     lang: 'iw',
-    image: 'israel.svg',
-    alt: 'israel flag',
+    name: 'He',
   },
   {
     lang: 'en',
-    image: 'england.svg',
-    alt: 'england flag',
+    name: 'En',
   },
   {
     lang: 'ru',
-    image: 'ru.svg',
-    alt: 'russian flag',
+    name: 'Ru',
   },
 ];
 

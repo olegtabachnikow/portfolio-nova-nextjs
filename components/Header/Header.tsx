@@ -113,7 +113,7 @@ const Header: FC = () => {
               margin: i18n.language === 'iw' ? '0 15px 0 0' : '0  0 0 15px',
             }}
           >
-            <Image src='/images/bulb.svg' width={25} height={25} alt='bulb' />
+            <Image src='/images/bulb.svg' width={35} height={35} alt='bulb' />
           </button>
         </div>
         {langButtonList.map((lang: ButtonItemLangType) => {
@@ -126,14 +126,7 @@ const Header: FC = () => {
               }`}
               key={lang.lang}
             >
-              <div className={classes.image_container}>
-                <Image
-                  src={`/images/${lang.image}`}
-                  width={30}
-                  height={30}
-                  alt='flag'
-                />
-              </div>
+              {lang.name}
             </Link>
           );
         })}

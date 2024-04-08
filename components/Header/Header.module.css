@@ -30,25 +30,20 @@
 .logo:hover {
   opacity: 0.7;
 }
-.image_container {
-  width: 25px;
-  height: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  border: 1px solid white;
-  box-sizing: border-box;
-}
-.image_container:hover {
-  opacity: 0.7;
-}
 .lang_list {
   display: flex;
-  gap: 10px;
+  gap: 20px;
+  align-items: center;
+  font-family: var(--font-jost);
+}
+.lang_button {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.lang_button:hover {
+  opacity: 1;
 }
 .lang_button.active {
   display: none;
@@ -60,13 +55,13 @@
 }
 .bulb,
 .bulb_shown {
-  border: 1px solid #fff;
-  border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 27px;
-  height: 27px;
+  width: 35px;
+  height: 35px;
   padding: 0;
+  background-color: transparent;
+  border: none;
 }
 .bulb:hover,
 .bulb_shown {
