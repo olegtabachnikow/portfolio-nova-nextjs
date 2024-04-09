@@ -5,10 +5,10 @@ import { CardContentWrapper } from '../CardContentWrapper/CardContentWrapper';
 import { SkillListType } from '@/types/types';
 import { SkillList } from '@/constants/constants';
 import Image from 'next/image';
-import SkillsButton from '../SkillsButton/SkillsButton';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { setIsBurgerMenuOpen } from '@/redux/interface-slice';
+import CustomButton from '../CustomButton/CustomButton';
 
 const Skills: FC = () => {
   const [currentSelectedSkill, setCurrentSelectedSkill] =
@@ -52,11 +52,11 @@ const Skills: FC = () => {
           flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
         }}
       >
-        <SkillsButton
+        <CustomButton
           text={t('menu.projects')}
           onClick={() => handleNavigation('/projects')}
         />
-        <SkillsButton
+        <CustomButton
           text={t('menu.contact')}
           onClick={() => handleNavigation('/contact')}
         />

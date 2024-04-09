@@ -1,15 +1,18 @@
 import { FC } from 'react';
 import classes from './Contact.module.css';
 import { CardContentWrapper } from '../CardContentWrapper/CardContentWrapper';
-import { useMediaQuery } from 'react-responsive';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import LinkBox from '../LinkBox/LinkBox';
+import CustomButton from '../CustomButton/CustomButton';
 
 export const Contact: FC = () => {
   const { t, i18n } = useTranslation();
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  const handleClick = () => {
+    window.open(process.env.NEXT_PUBLIC_CV as string, '_blank');
+    return;
+  };
 
   return (
     <CardContentWrapper>
@@ -86,15 +89,7 @@ export const Contact: FC = () => {
         </div>
         <span>olegtabachnikow@gmail.com</span>
       </motion.a>
-      <motion.a
-        whileTap={{ scale: 0.8 }}
-        className={classes.button}
-        id={isTabletOrMobile ? classes.mobile : undefined}
-        href={process.env.NEXT_PUBLIC_CV}
-        download
-      >
-        {t('contact.button')}
-      </motion.a>
+      <CustomButton text={t('contact.button')} onClick={handleClick} />
     </CardContentWrapper>
   );
 };

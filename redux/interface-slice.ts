@@ -9,6 +9,7 @@ interface InterfaceState {
   cardPage: CardPageType;
   cardHeight: number;
   cardHeaderMoved: boolean;
+  isCardHidden: boolean;
 }
 
 const initialState: InterfaceState = {
@@ -16,8 +17,9 @@ const initialState: InterfaceState = {
   isBurgerMenuOpen: false,
   isStarted: false,
   cardPage: 'About',
-  cardHeight: 450,
+  cardHeight: 420,
   cardHeaderMoved: false,
+  isCardHidden: false,
 };
 
 export const interfaceSlice = createSlice({
@@ -42,6 +44,9 @@ export const interfaceSlice = createSlice({
     setIsCardHeaderMoved: (state, action: PayloadAction<boolean>) => {
       return (state = { ...state, cardHeaderMoved: action.payload });
     },
+    setIsCardHidden: (state, action: PayloadAction<boolean>) => {
+      return (state = { ...state, isCardHidden: action.payload });
+    },
   },
 });
 
@@ -52,6 +57,7 @@ export const {
   setCardPage,
   setCardHeight,
   setIsCardHeaderMoved,
+  setIsCardHidden,
 } = interfaceSlice.actions;
 
 export default interfaceSlice.reducer;

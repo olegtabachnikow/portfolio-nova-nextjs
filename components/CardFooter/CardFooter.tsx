@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import classes from './CardFooter.module.css';
-import { Button } from '../Button/Button';
+import { ButtonSetButton } from '../ButtonSetButton/ButtonSetButton';
 import { useTranslation } from 'next-i18next';
 
 export const CardFooter: FC = () => {
@@ -10,9 +10,9 @@ export const CardFooter: FC = () => {
       className={classes.footer}
       style={{ flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row' }}
     >
-      <Button text='About' />
-      <Button text='Experience' />
-      <Button text='Skills' />
+      <ButtonSetButton text='About' />
+      <ButtonSetButton text='Experience' />
+      <ButtonSetButton text='Skills' />
     </div>
   );
 };

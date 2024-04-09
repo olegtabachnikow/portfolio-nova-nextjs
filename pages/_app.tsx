@@ -36,13 +36,9 @@ function App({ Component, pageProps }: AppProps) {
       <Suspense fallback={<Loader />}>
         <MainScreen>
           {router.route === '/' && <IntroContent />}
-          {router.route === '/playground' ? (
+          <CardContainer>
             <Component {...pageProps} />
-          ) : (
-            <CardContainer>
-              <Component {...pageProps} />
-            </CardContainer>
-          )}
+          </CardContainer>
         </MainScreen>
       </Suspense>
       {isMobile || isTabletOrMobile ? <BurgerMenu /> : <Header />}

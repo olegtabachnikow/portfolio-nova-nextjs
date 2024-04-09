@@ -10,6 +10,7 @@ import { emailRegex } from '@/constants/constants';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import Loader from '../Loader/Loader';
+import CustomButton from '../CustomButton/CustomButton';
 
 interface FormDataType {
   name: { value: string; error: string };
@@ -50,7 +51,7 @@ const Form: FC = () => {
       errors.message = t('form.errors.message_required');
     }
     if (!message.value.length) {
-      errors.message = t('form.errors.mesage_length');
+      errors.message = t('form.errors.message_length');
     }
     if (errors.name || errors.email || errors.message) {
       setFormData({
@@ -107,11 +108,8 @@ const Form: FC = () => {
               height={100}
               alt='result'
             />
-            <motion.button
-              initial={{ opacity: isDesktop ? 0.7 : 1 }}
-              whileHover={{ opacity: 1 }}
-              whileTap={{ scale: 0.95 }}
-              className={classes.button + ' ' + classes.button_sent}
+            <CustomButton
+              text={t(isError ? 'form.try_again' : 'form.send_another')}
               onClick={() => {
                 setFormData(
                   !isError
@@ -121,9 +119,7 @@ const Form: FC = () => {
                 setIsError(false);
                 setIsSent(false);
               }}
-            >
-              {t(isError ? 'form.try_again' : 'form.send_another')}
-            </motion.button>
+            />
           </div>
         ) : (
           <motion.form
@@ -167,15 +163,7 @@ const Form: FC = () => {
               value={formData.message.value}
               error={formData.message.error}
             />
-            <motion.button
-              initial={{ opacity: isDesktop ? 0.7 : 1 }}
-              whileHover={{ opacity: 1 }}
-              whileTap={{ scale: 0.95 }}
-              className={classes.button}
-              type='submit'
-            >
-              {t('form.submit')}
-            </motion.button>
+            <CustomButton text={t('form.submit')} isSubmitButton />
           </motion.form>
         )}
       </div>

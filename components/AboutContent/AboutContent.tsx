@@ -32,7 +32,7 @@ const AboutContent: FC = () => {
     switch (cardPage) {
       case 'About':
         handleFirstMove();
-        dispatch(setCardHeight(450));
+        dispatch(setCardHeight(420));
         dispatch(setIsCardHeaderMoved(false));
         break;
       case 'Experience':

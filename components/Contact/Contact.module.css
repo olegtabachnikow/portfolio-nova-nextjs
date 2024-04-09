@@ -11,6 +11,9 @@
 .link:first-of-type {
   margin-top: 40px;
 }
+.link:last-of-type {
+  margin-bottom: 50px;
+}
 .linkbox {
   margin-top: 10px;
   display: flex;
@@ -35,24 +38,4 @@
   margin: 0 0 0 10px;
   border: 0;
   border-left: 1px solid gray;
-}
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  height: 50px;
-  width: 100%;
-  color: #000;
-  text-decoration: none;
-  font-family: var(--font-jost);
-  background: linear-gradient(to right, #fff 0%, var(--primary) 96%);
-  text-transform: uppercase;
-  margin-top: 40px;
-  transition: all 0.2s ease-in-out;
-  opacity: 0.8;
-}
-.button:hover,
-#mobile {
-  opacity: 1;
 }

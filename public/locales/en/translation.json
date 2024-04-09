@@ -20,7 +20,7 @@
   },
   "about": {
     "title": "about",
-    "text": "As a highly motivated Frontend developer, my experience covers Israel, Russia and United States. I have extensive experience building single page applications and mobile applications. I constantly seek to improve my developer skill set by completing additional courses and staying up-to-date with the latest trends and technologies."
+    "text": "I am a Frontend Software Engineer with 5 years of experience, specializing in building web applications with ReactJS. My experience includes developing responsive and user-friendly interfaces using modern web technologies."
   },
   "experience": {
     "title": "work experience",
@@ -85,11 +85,15 @@
       "email_required": "Email is required",
       "email_invalid": "Invalid email",
       "message_required": "Message is required",
-      "message_lenght": "Message must be at least 10 characters"
+      "message_length": "Message must be at least 10 characters"
     },
     "submit": "Send",
     "sending": "Sending...",
     "send_another": "Send another message",
     "try_again": "Try again"
+  },
+  "playground": {
+    "text": "On this page, you can play around with the background. You can navigate to other pages using the menu.",
+    "button": "Hide window"
   }
 }

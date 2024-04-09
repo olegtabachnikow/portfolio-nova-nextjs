@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import classes from './Button.module.css';
+import classes from './ButtonSetButton.module.css';
 import { useTranslation } from 'next-i18next';
 import { CardPageType } from '@/types/types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +10,7 @@ interface Props {
   text: CardPageType;
 }
 
-export const Button: FC<Props> = ({ text }) => {
+export const ButtonSetButton: FC<Props> = ({ text }) => {
   const dispatch = useDispatch();
   const cardPage = useSelector((state: RootState) => state.interface.cardPage);
   const { t } = useTranslation('translation');
