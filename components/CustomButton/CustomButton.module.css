@@ -6,6 +6,7 @@
   border: none;
   border-radius: 10px;
   color: #000;
+  font-weight: 400;
   font-size: 14px;
   font-family: var(--font-jost);
   background: linear-gradient(to right, #fff 0%, var(--primary) 96%);
