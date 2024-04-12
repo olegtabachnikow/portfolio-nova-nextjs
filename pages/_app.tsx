@@ -31,6 +31,20 @@ function App({ Component, pageProps }: AppProps) {
           content="Oleg's frontent web developer portfolio"
         />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta
+          property='og:title'
+          content="Oleg's frontent web developer portfolio"
+        />
+        <meta
+          property='og:description'
+          content="Oleg's frontent web developer portfolio"
+        />
+        <meta
+          property='og:image'
+          content='https://i.ibb.co/dKbqJkZ/Screenshot-2024-04-10-at-23-51-31.png'
+        />
+        <meta property='og:url' content='https://oleg-web-dev.vercel.app/' />
+        <meta property='og:type' content='website' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Suspense fallback={<Loader />}>
