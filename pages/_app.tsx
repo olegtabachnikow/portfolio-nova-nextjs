@@ -47,6 +47,8 @@ function App({ Component, pageProps }: AppProps) {
         <meta property='og:type' content='website' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
+      {isMobile || isTabletOrMobile ? <BurgerMenu /> : <Header />}
+      {isMobile && isLandscape ? <Notification /> : null}
       <Suspense fallback={<Loader />}>
         <MainScreen>
           {router.route === '/' && <IntroContent />}
@@ -55,8 +57,6 @@ function App({ Component, pageProps }: AppProps) {
           </CardContainer>
         </MainScreen>
       </Suspense>
-      {isMobile || isTabletOrMobile ? <BurgerMenu /> : <Header />}
-      {isMobile && isLandscape ? <Notification /> : null}
     </Provider>
   );
 }

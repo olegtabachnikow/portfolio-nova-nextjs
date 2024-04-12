@@ -16,7 +16,7 @@ const MainScreen: FC<Props> = ({ children }) => {
   );
 
   useEffect(() => {
-    !isStarted && router.push('/');
+    !isStarted && router.route !== '/' && router.push('/');
   }, [isStarted]);
 
   return (
