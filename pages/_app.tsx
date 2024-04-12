@@ -41,7 +41,7 @@ function App({ Component, pageProps }: AppProps) {
         />
         <meta
           property='og:image'
-          content='https://i.ibb.co/dKbqJkZ/Screenshot-2024-04-10-at-23-51-31.png'
+          content='https://i.ibb.co/Wf62GKD/Screenshot-2024-04-12-at-22-11-22.png'
         />
         <meta property='og:url' content='https://oleg-web-dev.vercel.app/' />
         <meta property='og:type' content='website' />
