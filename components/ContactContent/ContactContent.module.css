@@ -15,6 +15,16 @@
   height: 40px;
   color: #fff;
 }
+.container_inner {
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .navigation_button {
   width: 50%;
   height: 100%;

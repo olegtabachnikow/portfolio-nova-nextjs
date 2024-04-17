@@ -39,31 +39,33 @@ const ContactContent: FC = () => {
   };
   return (
     <div className={classes.container}>
-      <div
-        className={classes.navigation}
-        style={{
-          flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
-        }}
-      >
-        <button
-          onClick={() => handleWindowChange('contacts')}
-          className={`${classes.navigation_button} ${
-            currentWindow === 'contacts' ? classes.active : ''
-          }`}
+      <div className={classes.container_inner}>
+        <div
+          className={classes.navigation}
+          style={{
+            flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
+          }}
         >
-          {t('menu.contact')}
-        </button>
-        <button
-          onClick={() => handleWindowChange('form')}
-          className={`${classes.navigation_button} ${
-            currentWindow === 'form' ? classes.active : ''
-          }`}
-        >
-          {t('form.title')}
-        </button>
-      </div>
-      <div className={classes.inner_container}>
-        {currentWindow === 'contacts' ? <Contact /> : <Form />}
+          <button
+            onClick={() => handleWindowChange('contacts')}
+            className={`${classes.navigation_button} ${
+              currentWindow === 'contacts' ? classes.active : ''
+            }`}
+          >
+            {t('menu.contact')}
+          </button>
+          <button
+            onClick={() => handleWindowChange('form')}
+            className={`${classes.navigation_button} ${
+              currentWindow === 'form' ? classes.active : ''
+            }`}
+          >
+            {t('form.title')}
+          </button>
+        </div>
+        <div className={classes.inner_container}>
+          {currentWindow === 'contacts' ? <Contact /> : <Form />}
+        </div>
       </div>
     </div>
   );
