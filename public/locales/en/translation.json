@@ -46,6 +46,8 @@
     }
   },
   "contact": {
+    "contacts": "Contacts",
+    "form": "Message me",
     "title": "contact me",
     "button": "download cv",
     "address": "Sderot Sheshet HaYamim 30, Tel Aviv-Jaffa"
@@ -59,10 +61,8 @@
     "skills": "skills"
   },
   "projects": {
-    "nav": {
-      "projects": "Projects",
-      "certificates": "Certificates"
-    },
+    "projects": "Projects",
+    "certificates": "Certificates",
     "preview": "Preview",
     "item1": "The Social Network Icons component is a versatile and customizable React component that allows you to easily display social network icons in your application.",
     "item2": "React-Codebook is an npm package that provides a versatile environment for writing and executing React.js code snippets.",
@@ -73,7 +73,6 @@
     "item7": "NextJS Blog is a simple blog application built with Next.js and TypeScript."
   },
   "form": {
-    "title": "Message me",
     "labels": {
       "name": "Name",
       "email": "Email",

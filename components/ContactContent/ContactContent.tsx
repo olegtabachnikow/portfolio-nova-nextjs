@@ -1,18 +1,17 @@
 import { FC, useState, useEffect } from 'react';
 import classes from './ContactContent.module.css';
 import { useDispatch } from 'react-redux';
-import { useTranslation } from 'next-i18next';
 import { setIsCameraMoving, setCameraPosition } from '@/redux/nova-slice';
 import { Contact } from '../Contact/Contact';
 import Form from '../Form/Form';
 import { setCardHeight } from '@/redux/interface-slice';
+import ContentWrapper from '../ContentWrapper/ContentWrapper';
 
 type CardPage = 'contacts' | 'form';
 
 const ContactContent: FC = () => {
   const [currentWindow, setCurrentWindow] = useState<CardPage>('contacts');
   const dispatch = useDispatch();
-  const { t, i18n } = useTranslation();
 
   function handleCameraOne() {
     dispatch(setCardHeight(380));
@@ -30,7 +29,7 @@ const ContactContent: FC = () => {
     currentWindow === 'contacts' ? handleCameraOne() : handleCameraTwo();
   }, [currentWindow]);
 
-  const handleWindowChange = (page: CardPage) => {
+  const handleWindowChange = (page: string) => {
     if (page === 'contacts') {
       setCurrentWindow('contacts');
     } else {
@@ -38,36 +37,17 @@ const ContactContent: FC = () => {
     }
   };
   return (
-    <div className={classes.container}>
-      <div className={classes.container_inner}>
-        <div
-          className={classes.navigation}
-          style={{
-            flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
-          }}
-        >
-          <button
-            onClick={() => handleWindowChange('contacts')}
-            className={`${classes.navigation_button} ${
-              currentWindow === 'contacts' ? classes.active : ''
-            }`}
-          >
-            {t('menu.contact')}
-          </button>
-          <button
-            onClick={() => handleWindowChange('form')}
-            className={`${classes.navigation_button} ${
-              currentWindow === 'form' ? classes.active : ''
-            }`}
-          >
-            {t('form.title')}
-          </button>
-        </div>
-        <div className={classes.inner_container}>
-          {currentWindow === 'contacts' ? <Contact /> : <Form />}
-        </div>
+    <ContentWrapper
+      page='contact'
+      firstButtonPage='contacts'
+      secondButtonPage='form'
+      currentWindow={currentWindow}
+      handleWindowChange={handleWindowChange}
+    >
+      <div className={classes.inner_container}>
+        {currentWindow === 'contacts' ? <Contact /> : <Form />}
       </div>
-    </div>
+    </ContentWrapper>
   );
 };
 

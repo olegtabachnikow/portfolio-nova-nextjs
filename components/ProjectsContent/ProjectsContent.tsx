@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-import classes from './ProjectsContent.module.css';
 import { useDispatch } from 'react-redux';
 import { setIsCameraMoving, setCameraPosition } from '@/redux/nova-slice';
 import Project from '@/components/Project/Project';
@@ -12,6 +11,7 @@ import { PhotoProvider } from 'react-photo-view';
 import { useTranslation } from 'next-i18next';
 import ProjectsContentWrapper from '../ProjectsContentWrapper/ProjectsContentWrapper';
 import { setCardHeight } from '@/redux/interface-slice';
+import ContentWrapper from '@/components/ContentWrapper/ContentWrapper';
 
 const Pagination = dynamic(() => import('../Pagination/Pagination'), {
   ssr: false,
@@ -41,7 +41,7 @@ const ProjectsContent: FC = () => {
     currentWindow === 'projects' ? handleCameraOne() : handleCameraTwo();
   }, [currentWindow]);
 
-  const handleWindowChange = (page: 'projects' | 'certificates') => {
+  const handleWindowChange = (page: string) => {
     if (page === 'projects') {
       setCurrentWindow('projects');
       setCurrentPage(1);
@@ -52,65 +52,44 @@ const ProjectsContent: FC = () => {
   };
 
   return (
-    <div className={classes.container}>
-      <div className={classes.container_inner}>
-        <div
-          className={classes.navigation}
-          style={{
-            flexDirection: i18n.language === 'iw' ? 'row-reverse' : 'row',
-          }}
+    <ContentWrapper
+      page='projects'
+      firstButtonPage='projects'
+      secondButtonPage='certificates'
+      currentWindow={currentWindow}
+      handleWindowChange={handleWindowChange}
+    >
+      {currentWindow === 'projects' ? (
+        <ProjectsContentWrapper
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         >
-          <button
-            onClick={() => handleWindowChange('projects')}
-            className={`${classes.navigation_button} ${
-              currentWindow === 'projects' ? classes.active : ''
-            }`}
-          >
-            {t('projects.nav.projects')}
-          </button>
-          <button
-            onClick={() => handleWindowChange('certificates')}
-            className={`${classes.navigation_button} ${
-              currentWindow === 'certificates' ? classes.active : ''
-            }`}
-          >
-            {t('projects.nav.certificates')}
-          </button>
-        </div>
-        {currentWindow === 'projects' ? (
+          {projectData.map((project: ProjectType, i: number) => (
+            <Project key={i} project={project} />
+          ))}
+        </ProjectsContentWrapper>
+      ) : (
+        <PhotoProvider bannerVisible={false}>
           <ProjectsContentWrapper
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
           >
-            {projectData.map((project: ProjectType, i: number) => (
-              <Project key={i} project={project} />
+            {certificateData.map((certificate: CertificateType, i: number) => (
+              <Certificate key={i} certificate={certificate} />
             ))}
           </ProjectsContentWrapper>
-        ) : (
-          <PhotoProvider bannerVisible={false}>
-            <ProjectsContentWrapper
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-            >
-              {certificateData.map(
-                (certificate: CertificateType, i: number) => (
-                  <Certificate key={i} certificate={certificate} />
-                )
-              )}
-            </ProjectsContentWrapper>
-          </PhotoProvider>
-        )}
-        <Pagination
-          length={
-            currentWindow === 'projects'
-              ? projectData.length
-              : certificateData.length
-          }
-          page={currentPage}
-          setPage={setCurrentPage}
-        />
-      </div>
-    </div>
+        </PhotoProvider>
+      )}
+      <Pagination
+        length={
+          currentWindow === 'projects'
+            ? projectData.length
+            : certificateData.length
+        }
+        page={currentPage}
+        setPage={setCurrentPage}
+      />
+    </ContentWrapper>
   );
 };
 
