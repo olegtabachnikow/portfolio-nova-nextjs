@@ -31,7 +31,7 @@ export const Experience: FC = () => {
           text={t('experience.item4.text')}
         />
         <ExperienceItem
-          year={'2019'}
+          year={'2020'}
           title={t('experience.item5.company')}
           text={t('experience.item5.text')}
         />
