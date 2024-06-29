@@ -11,7 +11,7 @@ export const Experience: FC = () => {
       <span className={classes.title}>{t('experience.title')}</span>
       <div className={classes.container}>
         <ExperienceItem
-          year={'2023'}
+          year={'2024'}
           title={t('experience.item1.company')}
           text={t('experience.item1.text')}
         />
